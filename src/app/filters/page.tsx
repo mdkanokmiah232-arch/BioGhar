@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -31,17 +31,6 @@ const districts = [
   "Cox's Bazar", "Gazipur",
 ];
 
-const educationLevels = [
-  "HSC", "B.Sc", "B.A", "B.Com", "BBA", "MBBS", "LL.B",
-  "M.Sc", "M.A", "MBA", "PhD", "Diploma", "Engineering",
-];
-
-const professions = [
-  "Software Engineer", "Doctor", "Engineer", "Teacher",
-  "Business", "Bank Officer", "Govt. Officer", "Lawyer",
-  "Student", "Other",
-];
-
 export default function AllFiltersPage() {
   const router = useRouter();
 
@@ -52,17 +41,27 @@ export default function AllFiltersPage() {
   const [ageMax, setAgeMax] = useState(60);
 
   // Address
-  const [district, setDistrict] = useState("all");
+  const [permanentDistrict, setPermanentDistrict] = useState("all");
+  const [presentDistrict, setPresentDistrict] = useState("all");
 
   // Education
-  const [education, setEducation] = useState("all");
+  const [eduMedium, setEduMedium] = useState<string[]>([]);
+  const [diniEdu, setDiniEdu] = useState<string[]>([]);
 
   // Personal
   const [profession, setProfession] = useState("all");
-  const [biodataNo, setBiodataNo] = useState("");
 
   // Tab
   const [tab, setTab] = useState<"filter" | "id">("filter");
+  const [biodataNo, setBiodataNo] = useState("");
+
+  const toggleEduMedium = (val: string) => {
+    setEduMedium((prev) => prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]);
+  };
+
+  const toggleDiniEdu = (val: string) => {
+    setDiniEdu((prev) => prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]);
+  };
 
   const handleSearch = () => {
     const params = new URLSearchParams();
@@ -70,8 +69,10 @@ export default function AllFiltersPage() {
     if (maritalStatus !== "all") params.set("maritalStatus", maritalStatus);
     if (ageMin !== 18) params.set("ageMin", String(ageMin));
     if (ageMax !== 60) params.set("ageMax", String(ageMax));
-    if (district !== "all") params.set("district", district);
-    if (education !== "all") params.set("education", education);
+    if (permanentDistrict !== "all") params.set("permanentDistrict", permanentDistrict);
+    if (presentDistrict !== "all") params.set("presentDistrict", presentDistrict);
+    if (eduMedium.length) params.set("eduMedium", eduMedium.join(","));
+    if (diniEdu.length) params.set("diniEdu", diniEdu.join(","));
     if (profession !== "all") params.set("profession", profession);
     if (biodataNo) params.set("biodataNo", biodataNo);
     const qs = params.toString();
@@ -81,9 +82,8 @@ export default function AllFiltersPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-lg mx-auto px-4 py-6">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex-1"></div>
+        {/* Close button */}
+        <div className="flex justify-end mb-4">
           <Link href="/" className="text-gray-400 hover:text-gray-600 transition">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -105,7 +105,7 @@ export default function AllFiltersPage() {
 
         {tab === "filter" ? (
           <div className="space-y-3">
-            {/* প্রাথমিক */}
+            {/* 1. প্রাথমিক */}
             <CollapsibleSection title="প্রাথমিক" defaultOpen={true}>
               <div className="space-y-4">
                 <div>
@@ -130,45 +130,80 @@ export default function AllFiltersPage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">বয়স</label>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-1 rounded">{ageMin}</span>
+                    <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-1 rounded min-w-[36px] text-center">{ageMin}</span>
                     <input type="range" min="18" max="60" value={ageMin} onChange={(e) => { const v = Number(e.target.value); if (v < ageMax) setAgeMin(v); }} className="flex-1 h-2 rounded-lg appearance-none cursor-pointer accent-emerald-600" />
                     <span className="text-xs text-gray-400">—</span>
                     <input type="range" min="18" max="60" value={ageMax} onChange={(e) => { const v = Number(e.target.value); if (v > ageMin) setAgeMax(v); }} className="flex-1 h-2 rounded-lg appearance-none cursor-pointer accent-emerald-600" />
-                    <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-1 rounded">{ageMax}</span>
+                    <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-1 rounded min-w-[36px] text-center">{ageMax}</span>
                   </div>
                 </div>
               </div>
             </CollapsibleSection>
 
-            {/* ঠিকানা */}
+            {/* 2. ঠিকানা */}
             <CollapsibleSection title="ঠিকানা">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">স্থায়ী ঠিকানা</label>
-                <select value={district} onChange={(e) => setDistrict(e.target.value)} className="search-select w-full">
-                  <option value="all">ঠিকানা নির্বাচন করুন</option>
-                  {districts.map((d) => <option key={d} value={d}>{d}</option>)}
-                </select>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">স্থায়ী ঠিকানা</label>
+                  <select value={permanentDistrict} onChange={(e) => setPermanentDistrict(e.target.value)} className="search-select w-full">
+                    <option value="all">ঠিকানা নির্বাচন করুন</option>
+                    {districts.map((d) => <option key={d} value={d}>{d}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">বর্তমান ঠিকানা</label>
+                  <select value={presentDistrict} onChange={(e) => setPresentDistrict(e.target.value)} className="search-select w-full">
+                    <option value="all">ঠিকানা নির্বাচন করুন</option>
+                    {districts.map((d) => <option key={d} value={d}>{d}</option>)}
+                  </select>
+                </div>
               </div>
             </CollapsibleSection>
 
-            {/* শিক্ষা */}
+            {/* 3. শিক্ষা */}
             <CollapsibleSection title="শিক্ষা">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">শিক্ষাগত যোগ্যতা</label>
-                <select value={education} onChange={(e) => setEducation(e.target.value)} className="search-select w-full">
-                  <option value="all">সকল</option>
-                  {educationLevels.map((e) => <option key={e} value={e}>{e}</option>)}
-                </select>
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">পড়াশোনার মাধ্যম</label>
+                  <div className="flex flex-wrap gap-3">
+                    {["জেনারেল", "কওমী", "আলিয়া"].map((opt) => (
+                      <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" checked={eduMedium.includes(opt)} onChange={() => toggleEduMedium(opt)} className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500" />
+                        <span className="text-sm text-gray-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">দ্বীনি শিক্ষাগত যোগ্যতা</label>
+                  <div className="flex flex-wrap gap-3">
+                    {["হাফেজ", "মাওলানা", "মুফতি", "মুফাসসির", "আদিব", "কারী"].map((opt) => (
+                      <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" checked={diniEdu.includes(opt)} onChange={() => toggleDiniEdu(opt)} className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500" />
+                        <span className="text-sm text-gray-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
               </div>
             </CollapsibleSection>
 
-            {/* ব্যক্তিগত */}
+            {/* 4. ব্যক্তিগত */}
             <CollapsibleSection title="ব্যক্তিগত">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">পেশা</label>
                 <select value={profession} onChange={(e) => setProfession(e.target.value)} className="search-select w-full">
                   <option value="all">সকল</option>
-                  {professions.map((p) => <option key={p} value={p}>{p}</option>)}
+                  <option value="Software Engineer">Software Engineer</option>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Engineer">Engineer</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Business">Business</option>
+                  <option value="Bank Officer">Bank Officer</option>
+                  <option value="Govt. Officer">Govt. Officer</option>
+                  <option value="Lawyer">Lawyer</option>
+                  <option value="Student">Student</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </CollapsibleSection>
