@@ -20,30 +20,33 @@ function CollapsibleSection({ title, defaultOpen = false, children }: { title: s
 
 function MaleMini() {
   return (
-    <svg viewBox="0 0 60 60" className="w-full h-full">
-      <circle cx="30" cy="18" r="11" fill="#065f46"/>
-      <ellipse cx="30" cy="13" rx="12" ry="5" fill="#047857"/>
-      <rect x="18" y="10" width="24" height="6" rx="2" fill="#047857"/>
-      <circle cx="26" cy="18" r="1" fill="#034d38"/><circle cx="34" cy="18" r="1" fill="#034d38"/>
-      <path d="M27 23 Q30 26 33 23" fill="none" stroke="#034d38" strokeWidth="0.8" strokeLinecap="round"/>
-      <path d="M18 32 C18 28 23 25 30 25 C37 25 42 28 42 32 L42 52 C42 54 40 55 38 55 L22 55 C20 55 18 54 18 52Z" fill="#065f46"/>
-      <path d="M26 25 L30 31 L34 25" fill="none" stroke="#10b981" strokeWidth="1"/>
-      <path d="M22 22 Q24 29 30 30 Q36 29 38 22" fill="#047857" opacity="0.6"/>
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <circle cx="50" cy="50" r="48" fill="none" stroke="#059669" strokeWidth="4"/>
+      <circle cx="50" cy="50" r="46" fill="white"/>
+      <ellipse cx="50" cy="82" rx="22" ry="16" fill="#059669"/>
+      <rect x="44" y="60" width="12" height="12" rx="2" fill="#059669"/>
+      <ellipse cx="50" cy="46" rx="15" ry="17" fill="#059669"/>
+      <rect x="36" y="28" width="28" height="10" rx="3" fill="#059669"/>
+      <rect x="34" y="32" width="32" height="5" rx="2" fill="#059669"/>
+      <path d="M37 52 Q38 64 50 66 Q62 64 63 52" fill="#059669"/>
+      <ellipse cx="35" cy="46" rx="3" ry="5" fill="#059669"/>
+      <ellipse cx="65" cy="46" rx="3" ry="5" fill="#059669"/>
     </svg>
   );
 }
 
 function FemaleMini() {
   return (
-    <svg viewBox="0 0 60 70" className="w-full h-full">
-      <ellipse cx="30" cy="20" rx="15" ry="16" fill="#059669"/>
-      <ellipse cx="30" cy="22" rx="9" ry="10" fill="#D4A574"/>
-      <circle cx="26" cy="21" r="1.2" fill="#034d38"/><circle cx="34" cy="21" r="1.2" fill="#034d38"/>
-      <path d="M27 26 Q30 29 33 26" fill="none" stroke="#034d38" strokeWidth="0.8" strokeLinecap="round"/>
-      <path d="M16 38 C16 32 22 28 30 28 C38 28 44 32 44 38 L44 66 C44 68 42 69 40 69 L20 69 C18 69 16 68 16 66Z" fill="#059669"/>
-      <path d="M25 28 L30 34 L35 28" fill="none" stroke="#10b981" strokeWidth="0.8"/>
-      <path d="M16 38 L10 48 L13 49 L18 42" fill="#059669"/>
-      <path d="M44 38 L50 48 L47 49 L42 42" fill="#059669"/>
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <circle cx="50" cy="50" r="48" fill="none" stroke="#059669" strokeWidth="4"/>
+      <circle cx="50" cy="50" r="46" fill="#1a1a2e"/>
+      <path d="M20 92 C20 72 28 60 36 54 C42 50 50 48 50 48 C50 48 58 50 64 54 C72 60 80 72 80 92 L80 96 C80 98 78 98 76 98 L24 98 C22 98 20 98 20 96 Z" fill="#059669"/>
+      <ellipse cx="50" cy="36" rx="22" ry="24" fill="#059669"/>
+      <ellipse cx="50" cy="40" rx="9" ry="12" fill="#1a1a2e"/>
+      <ellipse cx="44" cy="38" rx="2.5" ry="1.8" fill="white"/>
+      <ellipse cx="56" cy="38" rx="2.5" ry="1.8" fill="white"/>
+      <circle cx="44" cy="38" r="1.2" fill="#1a1a2e"/>
+      <circle cx="56" cy="38" r="1.2" fill="#1a1a2e"/>
     </svg>
   );
 }
