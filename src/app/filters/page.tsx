@@ -25,11 +25,38 @@ function CollapsibleSection({ title, defaultOpen = false, children }: { title: s
   );
 }
 
+function CheckboxGroup({ options, selected, toggle }: { options: string[]; selected: string[]; toggle: (v: string) => void }) {
+  return (
+    <div className="flex flex-wrap gap-3">
+      {options.map((opt) => (
+        <label key={opt} className="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" checked={selected.includes(opt)} onChange={() => toggle(opt)} className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500" />
+          <span className="text-sm text-gray-700">{opt}</span>
+        </label>
+      ))}
+    </div>
+  );
+}
+
 const districts = [
   "Dhaka", "Chittagong", "Sylhet", "Rajshahi", "Khulna",
   "Barishal", "Rangpur", "Mymensingh", "Comilla", "Bogra",
   "Cox's Bazar", "Gazipur",
 ];
+
+const complexionOptions = ["ফর্সা", "উজ্জ্বল ফর্সা", "গোলাপি ফর্সা", "হালকা কমলা", "কমলা", "কালো"];
+const dietOptions = ["নন-ভেজ", "ভেজিটারিয়ান"];
+const tobaccoOptions = ["নেই", "তামাক", "সিগারেট", "বিড়ি", "অন্যান্য"];
+const bloodGroupOptions = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
+const familyTypeOptions = ["সংযুক্ত", "একক"];
+const familyStatusOptions = ["উচ্চ মধ্যবিত্ত", "মধ্যবিত্ত", "নিম্ন মধ্যবিত্ত"];
+const fatherOptions = ["চাকুরিদার", "ব্যবসায়ী", "অবসরপ্রাপ্ত", "মৃত"];
+const motherOptions = ["গৃহিণী", "চাকুরিদার"];
+const siblingOptions = ["১", "২", "৩", "৪", "৫+", "নেই"];
+const familyProfessionOptions = ["ব্যবসায়ী", "চাকুরিদার", "শিক্ষক", "চিকিৎসক", "ইঞ্জিনিয়ার", "আইনজীবী", "সরকারি চাকুরিদার", "অন্যান্য"];
+const incomeOptions = ["১৫ হাজার - ২৫ হাজার", "২৫ হাজার - ৫০ হাজার", "৫০ হাজার - ১ লাখ", "১ লাখ - ২ লাখ", "২ লাখ - ৫ লাখ", "৫ লাখ এর বেশি"];
+const propertyOptions = ["৫ লাখ পর্যন্ত", "১০ লাখ পর্যন্ত", "২৫ লাখ পর্যন্ত", "৫০ লাখ পর্যন্ত", "১ কোটি পর্যন্ত", "১ কোটির বেশি"];
+const weddingOptions = ["১০ হাজার পর্যন্ত", "১০-৫০ হাজার", "৫০ হাজার - ১ লাখ", "১-২ লাখ", "২-৫ লাখ", "৫-১০ লাখ", "১০ লাখ পর্যন্ত", "১০ লাখ এর বেশি", "যৌতুক নেই"];
 
 export default function AllFiltersPage() {
   const router = useRouter();
@@ -49,18 +76,31 @@ export default function AllFiltersPage() {
   const [diniEdu, setDiniEdu] = useState<string[]>([]);
 
   // Personal
-  const [profession, setProfession] = useState("all");
+  const [complexion, setComplexion] = useState<string[]>([]);
+  const [diet, setDiet] = useState<string[]>([]);
+  const [tobacco, setTobacco] = useState<string[]>([]);
+  const [bloodGroup, setBloodGroup] = useState<string[]>([]);
+
+  // Family
+  const [familyType, setFamilyType] = useState<string[]>([]);
+  const [familyStatus, setFamilyStatus] = useState<string[]>([]);
+  const [father, setFather] = useState<string[]>([]);
+  const [mother, setMother] = useState<string[]>([]);
+  const [brothers, setBrothers] = useState<string[]>([]);
+  const [sisters, setSisters] = useState<string[]>([]);
+  const [familyProfession, setFamilyProfession] = useState<string[]>([]);
+
+  // Others
+  const [income, setIncome] = useState<string[]>([]);
+  const [property, setProperty] = useState<string[]>([]);
+  const [wedding, setWedding] = useState<string[]>([]);
 
   // Tab
   const [tab, setTab] = useState<"filter" | "id">("filter");
   const [biodataNo, setBiodataNo] = useState("");
 
-  const toggleEduMedium = (val: string) => {
-    setEduMedium((prev) => prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]);
-  };
-
-  const toggleDiniEdu = (val: string) => {
-    setDiniEdu((prev) => prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]);
+  const toggle = (setter: React.Dispatch<React.SetStateAction<string[]>>) => (val: string) => {
+    setter((prev) => prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]);
   };
 
   const handleSearch = () => {
@@ -71,9 +111,6 @@ export default function AllFiltersPage() {
     if (ageMax !== 60) params.set("ageMax", String(ageMax));
     if (permanentDistrict !== "all") params.set("permanentDistrict", permanentDistrict);
     if (presentDistrict !== "all") params.set("presentDistrict", presentDistrict);
-    if (eduMedium.length) params.set("eduMedium", eduMedium.join(","));
-    if (diniEdu.length) params.set("diniEdu", diniEdu.join(","));
-    if (profession !== "all") params.set("profession", profession);
     if (biodataNo) params.set("biodataNo", biodataNo);
     const qs = params.toString();
     router.push(`/biodata${qs ? `?${qs}` : ""}`);
@@ -82,24 +119,18 @@ export default function AllFiltersPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-lg mx-auto px-4 py-6">
-        {/* Close button */}
+        {/* Close */}
         <div className="flex justify-end mb-4">
           <Link href="/" className="text-gray-400 hover:text-gray-600 transition">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
           </Link>
         </div>
 
         {/* Tabs */}
         <div className="bg-white rounded-xl border border-gray-100 shadow-sm mb-4">
           <div className="flex">
-            <button onClick={() => setTab("filter")} className={`flex-1 py-3 text-sm font-semibold border-b-2 transition ${tab === "filter" ? "text-emerald-700 border-emerald-600" : "text-gray-400 border-transparent"}`}>
-              ফিল্টার সমূহ
-            </button>
-            <button onClick={() => setTab("id")} className={`flex-1 py-3 text-sm font-semibold border-b-2 transition ${tab === "id" ? "text-emerald-700 border-emerald-600" : "text-gray-400 border-transparent"}`}>
-              বায়োডাটা নং
-            </button>
+            <button onClick={() => setTab("filter")} className={`flex-1 py-3 text-sm font-semibold border-b-2 transition ${tab === "filter" ? "text-emerald-700 border-emerald-600" : "text-gray-400 border-transparent"}`}>ফিল্টার সমূহ</button>
+            <button onClick={() => setTab("id")} className={`flex-1 py-3 text-sm font-semibold border-b-2 transition ${tab === "id" ? "text-emerald-700 border-emerald-600" : "text-gray-400 border-transparent"}`}>বায়োডাটা নং</button>
           </div>
         </div>
 
@@ -165,60 +196,93 @@ export default function AllFiltersPage() {
               <div className="space-y-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">পড়াশোনার মাধ্যম</label>
-                  <div className="flex flex-wrap gap-3">
-                    {["জেনারেল", "কওমী", "আলিয়া"].map((opt) => (
-                      <label key={opt} className="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" checked={eduMedium.includes(opt)} onChange={() => toggleEduMedium(opt)} className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500" />
-                        <span className="text-sm text-gray-700">{opt}</span>
-                      </label>
-                    ))}
-                  </div>
+                  <CheckboxGroup options={["জেনারেল", "কওমী", "আলিয়া"]} selected={eduMedium} toggle={toggle(setEduMedium)} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">দ্বীনি শিক্ষাগত যোগ্যতা</label>
-                  <div className="flex flex-wrap gap-3">
-                    {["হাফেজ", "মাওলানা", "মুফতি", "মুফাসসির", "আদিব", "কারী"].map((opt) => (
-                      <label key={opt} className="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" checked={diniEdu.includes(opt)} onChange={() => toggleDiniEdu(opt)} className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500" />
-                        <span className="text-sm text-gray-700">{opt}</span>
-                      </label>
-                    ))}
-                  </div>
+                  <CheckboxGroup options={["হাফেজ", "মাওলানা", "মুফতি", "মুফাসসির", "আদিব", "কারী"]} selected={diniEdu} toggle={toggle(setDiniEdu)} />
                 </div>
               </div>
             </CollapsibleSection>
 
             {/* 4. ব্যক্তিগত */}
             <CollapsibleSection title="ব্যক্তিগত">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">পেশা</label>
-                <select value={profession} onChange={(e) => setProfession(e.target.value)} className="search-select w-full">
-                  <option value="all">সকল</option>
-                  <option value="Software Engineer">Software Engineer</option>
-                  <option value="Doctor">Doctor</option>
-                  <option value="Engineer">Engineer</option>
-                  <option value="Teacher">Teacher</option>
-                  <option value="Business">Business</option>
-                  <option value="Bank Officer">Bank Officer</option>
-                  <option value="Govt. Officer">Govt. Officer</option>
-                  <option value="Lawyer">Lawyer</option>
-                  <option value="Student">Student</option>
-                  <option value="Other">Other</option>
-                </select>
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">গায়ের রং</label>
+                  <CheckboxGroup options={complexionOptions} selected={complexion} toggle={toggle(setComplexion)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">খাবারের অভ্যাস</label>
+                  <CheckboxGroup options={dietOptions} selected={diet} toggle={toggle(setDiet)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">পান তামাকের অভ্যাস</label>
+                  <CheckboxGroup options={tobaccoOptions} selected={tobacco} toggle={toggle(setTobacco)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">রক্তের গ্রুপ</label>
+                  <CheckboxGroup options={bloodGroupOptions} selected={bloodGroup} toggle={toggle(setBloodGroup)} />
+                </div>
+              </div>
+            </CollapsibleSection>
+
+            {/* 5. পারিবারিক */}
+            <CollapsibleSection title="পারিবারিক">
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">পরিবারের ধরন</label>
+                  <CheckboxGroup options={familyTypeOptions} selected={familyType} toggle={toggle(setFamilyType)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">পরিবারের অবস্থান</label>
+                  <CheckboxGroup options={familyStatusOptions} selected={familyStatus} toggle={toggle(setFamilyStatus)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">পিতা</label>
+                  <CheckboxGroup options={fatherOptions} selected={father} toggle={toggle(setFather)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">মাতা</label>
+                  <CheckboxGroup options={motherOptions} selected={mother} toggle={toggle(setMother)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">ভাই</label>
+                  <CheckboxGroup options={siblingOptions} selected={brothers} toggle={toggle(setBrothers)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">বোন</label>
+                  <CheckboxGroup options={siblingOptions} selected={sisters} toggle={toggle(setSisters)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">পরিবারের পেশা</label>
+                  <CheckboxGroup options={familyProfessionOptions} selected={familyProfession} toggle={toggle(setFamilyProfession)} />
+                </div>
+              </div>
+            </CollapsibleSection>
+
+            {/* 6. অন্যান্য */}
+            <CollapsibleSection title="অন্যান্য">
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">মাসিক আয়</label>
+                  <CheckboxGroup options={incomeOptions} selected={income} toggle={toggle(setIncome)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">সম্পত্তির পরিমান</label>
+                  <CheckboxGroup options={propertyOptions} selected={property} toggle={toggle(setProperty)} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">যৌতুক/বিয়ের খরচ</label>
+                  <CheckboxGroup options={weddingOptions} selected={wedding} toggle={toggle(setWedding)} />
+                </div>
               </div>
             </CollapsibleSection>
           </div>
         ) : (
-          /* বায়োডাটা নং Tab */
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
             <label className="block text-sm font-medium text-gray-700 mb-1.5">বায়োডাটা নম্বর</label>
-            <input
-              type="text"
-              placeholder="বায়োডাটা নম্বর লিখুন (যেমন: BM-2026-0001)"
-              value={biodataNo}
-              onChange={(e) => setBiodataNo(e.target.value)}
-              className="search-select w-full"
-            />
+            <input type="text" placeholder="বায়োডাটা নম্বর লিখুন (যেমন: BM-2026-0001)" value={biodataNo} onChange={(e) => setBiodataNo(e.target.value)} className="search-select w-full" />
           </div>
         )}
 
