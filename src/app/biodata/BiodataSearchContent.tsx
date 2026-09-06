@@ -118,8 +118,16 @@ export default function BiodataSearchContent() {
                       <div>
                         <label className="block text-xs font-medium text-gray-600 mb-1">বয়স (ন্যূনতম - সর্বোচ্চ)</label>
                         <div className="flex gap-2">
-                          <input type="number" placeholder="ন্যূনতম" value={ageMin === 18 ? "" : ageMin} onChange={(e) => { const v = Number(e.target.value); if (v && v >= 18 && v < ageMax) setAgeMin(v); else if (!e.target.value) setAgeMin(18); }} className="w-1/2 rounded-lg border border-gray-300 px-2.5 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500" />
-                          <input type="number" placeholder="সর্বোচ্চ" value={ageMax === 60 ? "" : ageMax} onChange={(e) => { const v = Number(e.target.value); if (v && v > ageMin && v <= 60) setAgeMax(v); else if (!e.target.value) setAgeMax(60); }} className="w-1/2 rounded-lg border border-gray-300 px-2.5 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                          <select value={ageMin} onChange={(e) => setAgeMin(Number(e.target.value))} className="w-1/2 search-select text-xs">
+                            {Array.from({ length: 25 }, (_, i) => (
+                              <option key={i + 18} value={i + 18}>{i + 18} বছর</option>
+                            ))}
+                          </select>
+                          <select value={ageMax} onChange={(e) => setAgeMax(Number(e.target.value))} className="w-1/2 search-select text-xs">
+                            {Array.from({ length: 25 }, (_, i) => (
+                              <option key={i + 20} value={i + 20}>{i + 20} বছর</option>
+                            ))}
+                          </select>
                         </div>
                       </div>
                     </div>
