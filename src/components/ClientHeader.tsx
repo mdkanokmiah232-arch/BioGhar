@@ -23,8 +23,8 @@ export default function ClientHeader() {
     <header className="sticky top-0 z-50 bg-white shadow-md border-b border-emerald-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl">🕌</span>
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/logo.webp" alt="BioGhar" className="h-9 w-auto" />
             <span className="text-xl font-bold text-emerald-700">BioGhar</span>
           </Link>
 
