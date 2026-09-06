@@ -153,23 +153,21 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
             <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">👨‍👩‍👧‍👦 পারিবারিক তথ্য</h2>
             <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">পরিবারের ধরন</span><p className="font-semibold text-gray-800">{biodata.familyType || "জানা নেই"}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">পরিবারের অবস্থা</span><p className="font-semibold text-gray-800">{biodata.familyStatus || "জানা নেই"}</p></div>
+              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">পরিবারের ধর্মীয় পরিবেশ</span><p className="font-semibold text-gray-800">{biodata.familyReligiousEnvironment}</p></div>
+              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">পরিবারের অর্থনৈতিক অবস্থা</span><p className="font-semibold text-gray-800">{biodata.familyFinancialCondition}</p></div>
               <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">বাবার নাম</span><p className="font-semibold text-gray-800">{biodata.fatherName}</p></div>
               <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">বাবার পেশা</span><p className="font-semibold text-gray-800">{biodata.fatherOccupation}</p></div>
               <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">মায়ের নাম</span><p className="font-semibold text-gray-800">{biodata.motherName}</p></div>
               <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">মায়ের পেশা</span><p className="font-semibold text-gray-800">{biodata.motherOccupation}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">ভাইয়ের সংখ্যা</span><p className="font-semibold text-gray-800">{biodata.brothers} জন</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">বোনের সংখ্যা</span><p className="font-semibold text-gray-800">{biodata.sisters} জন</p></div>
+              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">ভাই-বোন</span><p className="font-semibold text-gray-800">{biodata.siblings} জন</p></div>
             </div>
           </div>
 
           {/* অন্যান্য */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
             <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">ℹ️ অন্যান্য তথ্য</h2>
-            <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">খাবারের অভ্যাস</span><p className="font-semibold text-gray-800">{biodata.foodHabit || "জানা নেই"}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">পান তামাক</span><p className="font-semibold text-gray-800">{biodata.tobaccoHabit || "জানা নেই"}</p></div>
+            <div className="text-sm text-gray-600 bg-emerald-50 rounded-lg px-3 py-2">
+              <p>বিস্তারিত তথ্য জানতে যোগাযোগ করুন।</p>
             </div>
           </div>
 
