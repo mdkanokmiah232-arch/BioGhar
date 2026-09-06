@@ -30,12 +30,16 @@ export default function HomePage() {
   const [lookingFor, setLookingFor] = useState("");
   const [maritalStatus, setMaritalStatus] = useState("");
   const [district, setDistrict] = useState("");
+  const [ageFrom, setAgeFrom] = useState("");
+  const [ageTo, setAgeTo] = useState("");
 
   const handleSearch = () => {
     const params = new URLSearchParams();
     if (lookingFor) params.set("lookingFor", lookingFor);
     if (maritalStatus) params.set("maritalStatus", maritalStatus);
     if (district) params.set("district", district);
+    if (ageFrom) params.set("ageMin", ageFrom);
+    if (ageTo) params.set("ageMax", ageTo);
     const qs = params.toString();
     router.push(`/biodata${qs ? `?${qs}` : ""}`);
   };
@@ -87,6 +91,26 @@ export default function HomePage() {
                     <option value="">ঠিকানা নির্বাচন করুন</option>
                     {districts.map((d) => <option key={d} value={d}>{d}</option>)}
                   </select>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">বয়স (থেকে)</label>
+                    <select value={ageFrom} onChange={(e) => setAgeFrom(e.target.value)} className="search-select w-full">
+                      <option value="">নির্বাচন করুন</option>
+                      {Array.from({ length: 25 }, (_, i) => (
+                        <option key={i + 18} value={i + 18}>{i + 18} বছর</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">বয়স (পর্যন্ত)</label>
+                    <select value={ageTo} onChange={(e) => setAgeTo(e.target.value)} className="search-select w-full">
+                      <option value="">নির্বাচন করুন</option>
+                      {Array.from({ length: 25 }, (_, i) => (
+                        <option key={i + 20} value={i + 20}>{i + 20} বছর</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
 

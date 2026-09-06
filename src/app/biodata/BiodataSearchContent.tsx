@@ -104,8 +104,14 @@ export default function BiodataSearchContent() {
 
   const [lookingFor, setLookingFor] = useState(searchParams.get("lookingFor") || "all");
   const [maritalStatus, setMaritalStatus] = useState(searchParams.get("maritalStatus") || "all");
-  const [ageMin, setAgeMin] = useState(Number(searchParams.get("ageMin")) || 18);
-  const [ageMax, setAgeMax] = useState(Number(searchParams.get("ageMax")) || 60);
+  const [ageMin, setAgeMin] = useState(() => {
+    const v = searchParams.get("ageMin");
+    return v ? Number(v) : 18;
+  });
+  const [ageMax, setAgeMax] = useState(() => {
+    const v = searchParams.get("ageMax");
+    return v ? Number(v) : 60;
+  });
   const [district, setDistrict] = useState(searchParams.get("district") || "all");
   const [education, setEducation] = useState("all");
   const [profession, setProfession] = useState("all");
