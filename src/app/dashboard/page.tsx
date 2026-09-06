@@ -212,7 +212,7 @@ export default function DashboardPage() {
                 {currentStep === 8 && (
                   <>
                     <Input name="partnerAge" label="বয়স" value={form.partnerAge} onChange={handleChange} placeholder="যেমন: 22-30" />
-                    <Input name="partnerHeight" label="উচ্চতা" value={form.partnerHeight} onChange={handleChange} placeholder="যেমন: 4'10\" - 5'6\"" />
+                    <Input name="partnerHeight" label="উচ্চতা" value={form.partnerHeight} onChange={handleChange} placeholder="যেমন: 4.10 - 5.6 ফুট" />
                     <Select name="partnerComplexion" label="গায়ের রং" value={form.partnerComplexion} onChange={handleChange} options={["", "ফর্সা", "উজ্জ্বল ফর্সা", "গোলাপি ফর্সা", "হালকা শ্যাওলা", "শ্যাওলা", "কালচে শ্যাওলা", "কালো", "নির্দিষ্ট নেই"]} />
                     <Input name="partnerEducation" label="শিক্ষাগত যোগ্যতা" value={form.partnerEducation} onChange={handleChange} placeholder="যেমন: B.Sc / HSC" />
                     <Input name="partnerLocation" label="জেলা" value={form.partnerLocation} onChange={handleChange} placeholder="যেমন: ঢাকা" />
