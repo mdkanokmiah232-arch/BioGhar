@@ -5,113 +5,53 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { biodatas, districts } from "@/data/biodatas";
 
-const uniqueProfessions = [...new Set(biodatas.map((b) => b.profession))].sort();
-const uniqueEducations = [...new Set(biodatas.map((b) => b.educationLevel))].sort();
-const uniqueMaritalStatuses = [...new Set(biodatas.map((b) => b.maritalStatus))].sort();
-
-function ChevronDown({ className = "" }: { className?: string }) {
-  return (
-    <svg className={`w-5 h-5 ${className}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-    </svg>
-  );
-}
-
-function CollapsibleSection({
-  title,
-  defaultOpen = false,
-  children,
-}: {
-  title: string;
-  defaultOpen?: boolean;
-  children: React.ReactNode;
-}) {
+function CollapsibleSection({ title, defaultOpen = false, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 mb-3 shadow-sm overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-5 py-4 text-left"
-      >
-        <span className="font-semibold text-emerald-900 text-base">{title}</span>
-        <ChevronDown className={`text-emerald-600 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+    <div className="bg-white rounded-xl border border-gray-100 shadow-sm">
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-4 py-3.5 text-left">
+        <span className="font-semibold text-emerald-900 text-sm">{title}</span>
+        <svg className={`w-4 h-4 text-emerald-600 transition-transform duration-200 ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
       </button>
-      {open && <div className="px-5 pb-5 border-t border-gray-50 pt-4">{children}</div>}
+      {open && <div className="px-4 pb-4 border-t border-gray-100 pt-3">{children}</div>}
     </div>
   );
 }
 
-function AgeRangeSlider({
-  min,
-  max,
-  valueMin,
-  valueMax,
-  onChangeMin,
-  onChangeMax,
-}: {
-  min: number;
-  max: number;
-  valueMin: number;
-  valueMax: number;
-  onChangeMin: (v: number) => void;
-  onChangeMax: (v: number) => void;
-}) {
+function SmallMaleIcon() {
   return (
-    <div>
-      <div className="flex justify-between items-center mb-3">
-        <span className="bg-emerald-700 text-white text-xs font-bold px-3 py-1 rounded-full">{valueMin}</span>
-        <span className="bg-emerald-700 text-white text-xs font-bold px-3 py-1 rounded-full">{valueMax}</span>
-      </div>
-      <div className="relative h-2 bg-gray-200 rounded-full">
-        <div
-          className="absolute h-2 bg-emerald-600 rounded-full"
-          style={{
-            left: `${((valueMin - min) / (max - min)) * 100}%`,
-            width: `${((valueMax - valueMin) / (max - min)) * 100}%`,
-          }}
-        />
-      </div>
-      <div className="flex gap-4 mt-4">
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={valueMin}
-          onChange={(e) => {
-            const v = Number(e.target.value);
-            if (v <= valueMax) onChangeMin(v);
-          }}
-          className="w-full accent-emerald-600 cursor-pointer"
-        />
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={valueMax}
-          onChange={(e) => {
-            const v = Number(e.target.value);
-            if (v >= valueMin) onChangeMax(v);
-          }}
-          className="w-full accent-emerald-600 cursor-pointer"
-        />
-      </div>
+    <div className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "linear-gradient(135deg, #059669, #047857)" }}>
+      <svg viewBox="0 0 120 120" className="w-10 h-10">
+        <circle cx="60" cy="38" r="22" fill="white" opacity="0.9"/>
+        <rect x="38" y="20" width="44" height="12" rx="4" fill="white" opacity="0.7"/>
+        <circle cx="52" cy="38" r="2" fill="#047857"/>
+        <circle cx="68" cy="38" r="2" fill="#047857"/>
+        <path d="M36 65 C36 58 48 52 60 52 C72 52 84 58 84 65 L84 100 C84 105 80 108 76 108 L44 108 C40 108 36 105 36 100Z" fill="white" opacity="0.85"/>
+        <path d="M44 44 Q48 56 60 58 Q72 56 76 44" fill="white" opacity="0.5"/>
+      </svg>
+    </div>
+  );
+}
+
+function SmallFemaleIcon() {
+  return (
+    <div className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "linear-gradient(135deg, #059669, #047857)" }}>
+      <svg viewBox="0 0 120 140" className="w-10 h-10">
+        <ellipse cx="60" cy="40" rx="30" ry="32" fill="white" opacity="0.85"/>
+        <circle cx="52" cy="40" r="2.5" fill="#047857"/>
+        <circle cx="68" cy="40" r="2.5" fill="#047857"/>
+        <path d="M32 72 C32 62 44 56 60 56 C76 56 88 62 88 72 L88 130 C88 135 84 138 80 138 L40 138 C36 138 32 135 32 130Z" fill="white" opacity="0.85"/>
+      </svg>
     </div>
   );
 }
 
 export default function BiodataSearchContent() {
   const searchParams = useSearchParams();
-
   const [lookingFor, setLookingFor] = useState(searchParams.get("lookingFor") || "all");
   const [maritalStatus, setMaritalStatus] = useState(searchParams.get("maritalStatus") || "all");
-  const [ageMin, setAgeMin] = useState(() => {
-    const v = searchParams.get("ageMin");
-    return v ? Number(v) : 18;
-  });
-  const [ageMax, setAgeMax] = useState(() => {
-    const v = searchParams.get("ageMax");
-    return v ? Number(v) : 60;
-  });
+  const [ageMin, setAgeMin] = useState(() => { const v = searchParams.get("ageMin"); return v ? Number(v) : 18; });
+  const [ageMax, setAgeMax] = useState(() => { const v = searchParams.get("ageMax"); return v ? Number(v) : 60; });
   const [district, setDistrict] = useState(searchParams.get("district") || "all");
   const [education, setEducation] = useState("all");
   const [profession, setProfession] = useState("all");
@@ -133,167 +73,112 @@ export default function BiodataSearchContent() {
   }, [lookingFor, maritalStatus, ageMin, ageMax, district, education, profession, biodataNo]);
 
   const resetFilters = () => {
-    setLookingFor("all");
-    setMaritalStatus("all");
-    setAgeMin(18);
-    setAgeMax(60);
-    setDistrict("all");
-    setEducation("all");
-    setProfession("all");
-    setBiodataNo("");
-  };
-
-  const handleSearch = () => {
-    // Scroll to results
-    document.getElementById("results")?.scrollIntoView({ behavior: "smooth" });
+    setLookingFor("all"); setMaritalStatus("all"); setAgeMin(18); setAgeMax(60);
+    setDistrict("all"); setEducation("all"); setProfession("all"); setBiodataNo("");
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Filters */}
-          <aside className="w-full lg:w-80 flex-shrink-0">
+
+          {/* Sidebar */}
+          <aside className="w-full lg:w-72 flex-shrink-0">
             <div className="sticky top-24">
-              {/* Tabs */}
-              <div className="bg-white rounded-t-2xl border border-gray-100 border-b-0 shadow-sm">
+              <div className="bg-white rounded-t-xl border border-gray-100 border-b-0 shadow-sm">
                 <div className="flex">
-                  <button
-                    onClick={() => setActiveTab("filter")}
-                    className={`flex-1 py-3.5 text-sm font-semibold transition ${
-                      activeTab === "filter"
-                        ? "text-emerald-700 border-b-2 border-emerald-600"
-                        : "text-gray-400 hover:text-emerald-600"
-                    }`}
-                  >
-                    ফিল্টার সমূহ
-                  </button>
-                  <button
-                    onClick={() => setActiveTab("biodataNo")}
-                    className={`flex-1 py-3.5 text-sm font-semibold transition ${
-                      activeTab === "biodataNo"
-                        ? "text-emerald-700 border-b-2 border-emerald-600"
-                        : "text-gray-400 hover:text-emerald-600"
-                    }`}
-                  >
-                    বায়োডাটা নং
-                  </button>
+                  <button onClick={() => setActiveTab("filter")} className={`flex-1 py-3 text-sm font-semibold border-b-2 transition ${activeTab === "filter" ? "text-emerald-700 border-emerald-600" : "text-gray-400 border-transparent"}`}>ফিল্টার সমূহ</button>
+                  <button onClick={() => setActiveTab("biodataNo")} className={`flex-1 py-3 text-sm font-semibold border-b-2 transition ${activeTab === "biodataNo" ? "text-emerald-700 border-emerald-600" : "text-gray-400 border-transparent"}`}>বায়োডাটা নং</button>
                 </div>
               </div>
 
-              {/* Filter Tab Content */}
-              {activeTab === "filter" && (
-                <div className="bg-white rounded-b-2xl border border-gray-100 border-t-0 shadow-sm p-5 space-y-0">
-                  {/* 1. প্রাথমিক */}
+              {activeTab === "filter" ? (
+                <div className="bg-white rounded-b-xl border border-gray-100 border-t-0 shadow-sm p-4 space-y-3">
                   <CollapsibleSection title="প্রাথমিক" defaultOpen={true}>
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">আমি খুঁজছি</label>
-                        <select value={lookingFor} onChange={(e) => setLookingFor(e.target.value)} className="search-select w-full">
+                        <label className="block text-xs font-medium text-gray-600 mb-1">আমি খুঁজছি</label>
+                        <select value={lookingFor} onChange={(e) => setLookingFor(e.target.value)} className="search-select w-full text-sm">
                           <option value="all">সকল</option>
                           <option value="groom">পাত্র</option>
                           <option value="bride">পাত্রী</option>
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">বৈবাহিক অবস্থা</label>
-                        <select value={maritalStatus} onChange={(e) => setMaritalStatus(e.target.value)} className="search-select w-full">
+                        <label className="block text-xs font-medium text-gray-600 mb-1">বৈবাহিক অবস্থা</label>
+                        <select value={maritalStatus} onChange={(e) => setMaritalStatus(e.target.value)} className="search-select w-full text-sm">
                           <option value="all">সকল</option>
-                          {uniqueMaritalStatuses.map((ms) => (
-                            <option key={ms} value={ms}>{ms}</option>
-                          ))}
+                          <option value="অবিবাহিত">অবিবাহিত</option>
+                          <option value="বিবাহিত">বিবাহিত</option>
+                          <option value="ডিভোর্সড">ডিভোর্সড</option>
+                          <option value="বিধবা">বিধবা</option>
+                          <option value="বিপত্নীক">বিপত্নীক</option>
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">বয়স</label>
-                        <AgeRangeSlider
-                          min={18}
-                          max={60}
-                          valueMin={ageMin}
-                          valueMax={ageMax}
-                          onChangeMin={setAgeMin}
-                          onChangeMax={setAgeMax}
-                        />
+                        <label className="block text-xs font-medium text-gray-600 mb-1">বয়স</label>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">{ageMin}</span>
+                          <input type="range" min="18" max="60" value={ageMin} onChange={(e) => { const v = Number(e.target.value); if (v < ageMax) setAgeMin(v); }} className="flex-1 h-1.5 accent-emerald-600" />
+                          <span className="text-xs text-gray-400">—</span>
+                          <input type="range" min="18" max="60" value={ageMax} onChange={(e) => { const v = Number(e.target.value); if (v > ageMin) setAgeMax(v); }} className="flex-1 h-1.5 accent-emerald-600" />
+                          <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">{ageMax}</span>
+                        </div>
                       </div>
                     </div>
                   </CollapsibleSection>
 
-                  {/* 2. ঠিকানা */}
                   <CollapsibleSection title="ঠিকানা">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">স্থায়ী ঠিকানা</label>
-                      <select value={district} onChange={(e) => setDistrict(e.target.value)} className="search-select w-full">
-                        <option value="all">ঠিকানা নির্বাচন করুন</option>
-                        {districts.map((d) => (
-                          <option key={d} value={d}>{d}</option>
-                        ))}
-                      </select>
-                    </div>
+                    <select value={district} onChange={(e) => setDistrict(e.target.value)} className="search-select w-full text-sm">
+                      <option value="all">ঠিকানা নির্বাচন করুন</option>
+                      {districts.map((d) => <option key={d} value={d}>{d}</option>)}
+                    </select>
                   </CollapsibleSection>
 
-                  {/* 3. শিক্ষা */}
                   <CollapsibleSection title="শিক্ষা">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">শিক্ষাগত যোগ্যতা</label>
-                      <select value={education} onChange={(e) => setEducation(e.target.value)} className="search-select w-full">
-                        <option value="all">সকল</option>
-                        {uniqueEducations.map((ed) => (
-                          <option key={ed} value={ed}>{ed}</option>
-                        ))}
-                      </select>
-                    </div>
+                    <select value={education} onChange={(e) => setEducation(e.target.value)} className="search-select w-full text-sm">
+                      <option value="all">সকল</option>
+                      {["HSC","B.Sc","B.A","B.Com","BBA","MBBS","LL.B","M.Sc","M.A","MBA","PhD","Diploma","Engineering"].map((e) => <option key={e} value={e}>{e}</option>)}
+                    </select>
                   </CollapsibleSection>
 
-                  {/* 4. ব্যক্তিগত */}
-                  <CollapsibleSection title="ব্যক্তিগত">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">পেশা</label>
-                      <select value={profession} onChange={(e) => setProfession(e.target.value)} className="search-select w-full">
-                        <option value="all">সকল</option>
-                        {uniqueProfessions.map((p) => (
-                          <option key={p} value={p}>{p}</option>
-                        ))}
-                      </select>
-                    </div>
+                  <CollapsibleSection title="পারিবারিক">
+                    <select className="search-select w-full text-sm">
+                      <option value="all">সকল</option>
+                    </select>
                   </CollapsibleSection>
+
+                  <CollapsibleSection title="পেশা">
+                    <select value={profession} onChange={(e) => setProfession(e.target.value)} className="search-select w-full text-sm">
+                      <option value="all">সকল</option>
+                      {["Software Engineer","Doctor","Engineer","Teacher","Business","Bank Officer","Govt. Officer","Lawyer","Student"].map((p) => <option key={p} value={p}>{p}</option>)}
+                    </select>
+                  </CollapsibleSection>
+
+                  <CollapsibleSection title="অন্যান্য">
+                    <p className="text-xs text-gray-500">আর্থিক অবস্থা ও ক্যাটাগরি ফিল্টার শীঘ্রই আসছে।</p>
+                  </CollapsibleSection>
+                </div>
+              ) : (
+                <div className="bg-white rounded-b-xl border border-gray-100 border-t-0 shadow-sm p-4">
+                  <label className="block text-xs font-medium text-gray-600 mb-1">বায়োডাটা নম্বর</label>
+                  <input type="text" placeholder="যেমন: BM-2026-0001" value={biodataNo} onChange={(e) => setBiodataNo(e.target.value)} className="search-select w-full text-sm" />
                 </div>
               )}
 
-              {/* Biodata No Tab Content */}
-              {activeTab === "biodataNo" && (
-                <div className="bg-white rounded-b-2xl border border-gray-100 border-t-0 shadow-sm p-5">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">বায়োডাটা নম্বর লিখুন</label>
-                  <input
-                    type="text"
-                    placeholder="যেমন: BM-2026-0001"
-                    value={biodataNo}
-                    onChange={(e) => setBiodataNo(e.target.value)}
-                    className="search-select w-full"
-                  />
-                </div>
-              )}
-
-              {/* Search Button */}
-              <button
-                onClick={handleSearch}
-                className="w-full mt-4 py-3.5 rounded-full text-white font-bold text-base shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02]"
-                style={{ background: "linear-gradient(135deg, #059669, #047857)" }}
-              >
-                🔍 বায়োডাটা খুঁজুন
-              </button>
-
-              {/* Reset */}
-              <button onClick={resetFilters} className="w-full mt-2 py-2.5 text-sm font-medium text-gray-500 hover:text-emerald-700 transition">
-                ফিল্টার রিসেট করুন
-              </button>
+              <div className="flex gap-2 mt-3">
+                <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex-1 py-2.5 rounded-full border-2 border-emerald-600 text-emerald-700 font-semibold text-xs hover:bg-emerald-50 transition">ফিল্টার খুঁজুন</button>
+                <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex-1 py-2.5 rounded-full text-white font-bold text-xs shadow-md transition hover:shadow-lg" style={{ background: "linear-gradient(135deg, #059669, #047857)" }}>বায়োডাটা খুঁজুন</button>
+              </div>
+              <button onClick={resetFilters} className="w-full mt-2 py-2 text-xs font-medium text-gray-500 hover:text-emerald-700 transition">ফিল্টার রিসেট করুন</button>
             </div>
           </aside>
 
           {/* Main Content */}
-          <main id="results" className="flex-1">
-            <div className="flex items-center justify-between mb-6">
-              <h1 className="text-2xl font-bold text-emerald-900">বায়োডাটা খুঁজুন</h1>
-              <span className="text-sm text-gray-500">{filtered.length} টি ফলাফল</span>
+          <main className="flex-1">
+            <div className="text-center mb-6">
+              <h1 className="text-2xl font-bold text-emerald-900 mb-1">বায়োডাটা সমূহ</h1>
+              <p className="text-sm text-gray-500">{filtered.length} টি বায়োডাটা পাওয়া গেছে!</p>
             </div>
 
             {filtered.length === 0 ? (
@@ -303,30 +188,38 @@ export default function BiodataSearchContent() {
                 <p className="text-gray-400 text-sm mt-2">ফিল্টার পরিবর্তন করে আবার চেষ্টা করুন</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                {filtered.map((b) => (
-                  <Link key={b.id} href={`/biodata/${b.id}`} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover block">
-                    <div className="relative h-56 overflow-hidden">
-                      <img src={b.photoUrl} alt={b.name} className="w-full h-full object-cover" />
-                      <span className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white ${b.type === "GROOM" ? "bg-blue-600" : "bg-pink-600"}`}>
-                        {b.type === "GROOM" ? "পাত্র" : "পাত্রী"}
-                      </span>
-                      <span className="absolute top-3 right-3 bg-emerald-700 text-white px-2.5 py-1 rounded-full text-xs font-bold">#{b.biodataCode}</span>
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-bold text-emerald-900 text-lg">{b.name}</h3>
-                      <div className="mt-2 grid grid-cols-2 gap-2 text-sm text-gray-600">
-                        <div className="flex items-center gap-1.5"><span className="text-emerald-600">📅</span><span>{b.age} বছর</span></div>
-                        <div className="flex items-center gap-1.5"><span className="text-emerald-600">📏</span><span>{b.height} সেমি</span></div>
-                        <div className="flex items-center gap-1.5"><span className="text-emerald-600">💼</span><span className="truncate">{b.profession}</span></div>
-                        <div className="flex items-center gap-1.5"><span className="text-emerald-600">📍</span><span>{b.presentAddress.district}</span></div>
-                        <div className="flex items-center gap-1.5"><span className="text-emerald-600">💍</span><span>{b.maritalStatus}</span></div>
-                        <div className="flex items-center gap-1.5"><span className="text-emerald-600">🎓</span><span className="truncate">{b.educationLevel}</span></div>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                  {filtered.map((b) => {
+                    const isGroom = b.type === "GROOM";
+                    return (
+                      <Link key={b.id} href={`/biodata/${b.id}`} className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all block p-4">
+                        <div className="flex items-center gap-3">
+                          {isGroom ? <SmallMaleIcon /> : <SmallFemaleIcon />}
+                          <div className="flex-1 min-w-0">
+                            <div className="font-bold text-emerald-900 text-sm">{b.biodataCode}</div>
+                            <div className="text-xs text-gray-500">বয়স - {b.age} বছর</div>
+                            <div className="text-xs text-gray-500">উচ্চতা - {b.height} সেমি</div>
+                            <div className="text-xs text-gray-500">পেশা - {b.profession}</div>
+                            <div className="text-xs text-gray-500">বৈবাহিক - {b.maritalStatus}</div>
+                          </div>
+                          <button className="px-3 py-1.5 rounded-full border border-emerald-600 text-emerald-700 text-xs font-semibold hover:bg-emerald-50 transition flex-shrink-0">
+                            বিস্তারিত →
+                          </button>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                {filtered.length > 12 && (
+                  <div className="text-center mt-8">
+                    <button className="px-8 py-3 rounded-full text-white font-bold text-sm shadow-lg transition hover:shadow-xl" style={{ background: "linear-gradient(135deg, #059669, #047857)" }}>
+                      সকল বায়োডাটা দেখুন
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </main>
         </div>
