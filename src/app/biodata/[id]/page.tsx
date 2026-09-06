@@ -8,36 +8,25 @@ export function generateStaticParams() {
 
 function MaleIcon() {
   return (
-    <svg viewBox="0 0 120 140" className="w-full h-full">
+    <svg viewBox="0 0 120 120" className="w-full h-full">
+      {/* Head */}
+      <circle cx="60" cy="38" r="22" fill="#5B4A8A"/>
+      {/* Topi */}
+      <ellipse cx="60" cy="28" rx="24" ry="10" fill="#3D3266"/>
+      <rect x="38" y="20" width="44" height="12" rx="4" fill="#3D3266"/>
       {/* Face */}
-      <circle cx="60" cy="45" r="28" fill="#F5D0A9"/>
-      {/* Hair */}
-      <path d="M32 38 C32 18 88 18 88 38 C88 28 32 28 32 38Z" fill="#2D2D2D"/>
-      {/* Kufi/Cap */}
-      <rect x="35" y="18" width="50" height="16" rx="8" fill="#059669"/>
-      <rect x="38" y="30" width="44" height="5" rx="2" fill="#047857"/>
-      {/* Eyes */}
-      <ellipse cx="48" cy="44" rx="3" ry="3.5" fill="#2D2D2D"/>
-      <ellipse cx="72" cy="44" rx="3" ry="3.5" fill="#2D2D2D"/>
-      <circle cx="49" cy="43" r="1" fill="white"/>
-      <circle cx="73" cy="43" r="1" fill="white"/>
-      {/* Beard */}
-      <path d="M40 55 C40 55 42 72 60 72 C78 72 80 55 80 55" fill="#2D2D2D" opacity="0.8"/>
-      {/* Smile */}
-      <path d="M50 54 Q60 62 70 54" fill="none" stroke="#C47A5A" strokeWidth="1.5" strokeLinecap="round"/>
-      {/* Body/Shirt */}
-      <path d="M30 80 C30 72 90 72 90 80 L95 140 L25 140Z" fill="white"/>
+      <circle cx="52" cy="38" r="2" fill="#2D2040"/>
+      <circle cx="68" cy="38" r="2" fill="#2D2040"/>
+      <path d="M54 46 Q60 52 66 46" fill="none" stroke="#2D2040" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Body - Punjabi */}
+      <path d="M36 65 C36 58 48 52 60 52 C72 52 84 58 84 65 L84 100 C84 105 80 108 76 108 L44 108 C40 108 36 105 36 100Z" fill="#5B4A8A"/>
       {/* Collar */}
-      <path d="M45 78 L60 92 L75 78" fill="none" stroke="#ddd" strokeWidth="1.5"/>
-      {/* Tie */}
-      <polygon points="56,78 64,78 62,100 58,100" fill="#059669"/>
-      <polygon points="58,100 62,100 60,112" fill="#047857"/>
+      <path d="M52 52 L60 62 L68 52" fill="none" stroke="#8B7AB8" strokeWidth="2"/>
       {/* Arms */}
-      <path d="M30 82 L18 120" stroke="white" strokeWidth="12" strokeLinecap="round"/>
-      <path d="M90 82 L102 120" stroke="white" strokeWidth="12" strokeLinecap="round"/>
-      {/* Hands */}
-      <circle cx="18" cy="122" r="7" fill="#F5D0A9"/>
-      <circle cx="102" cy="122" r="7" fill="#F5D0A9"/>
+      <path d="M36 65 L24 80 L28 82 L38 70" fill="#5B4A8A"/>
+      <path d="M84 65 L96 80 L92 82 L82 70" fill="#5B4A8A"/>
+      {/* Beard */}
+      <path d="M44 44 Q48 56 60 58 Q72 56 76 44" fill="#3D3266" opacity="0.6"/>
     </svg>
   );
 }
@@ -46,43 +35,30 @@ function FemaleIcon() {
   return (
     <svg viewBox="0 0 120 140" className="w-full h-full">
       {/* Hijab */}
-      <ellipse cx="60" cy="42" rx="34" ry="32" fill="#059669"/>
-      {/* Inner hijab layer */}
-      <ellipse cx="60" cy="42" rx="30" ry="28" fill="#047857"/>
+      <ellipse cx="60" cy="40" rx="30" ry="32" fill="#7C3AED"/>
       {/* Face */}
-      <ellipse cx="60" cy="46" rx="22" ry="24" fill="#F5D0A9"/>
-      {/* Hijab drape */}
-      <path d="M26 38 C26 20 94 20 94 38 L94 50 C94 50 80 42 60 42 C40 42 26 50 26 50Z" fill="#059669"/>
-      {/* Hijab fold lines */}
-      <path d="M32 35 Q42 28 52 32" fill="none" stroke="#047857" strokeWidth="1" opacity="0.5"/>
-      <path d="M68 32 Q78 28 88 35" fill="none" stroke="#047857" strokeWidth="1" opacity="0.5"/>
+      <ellipse cx="60" cy="42" rx="18" ry="20" fill="#D4A574"/>
       {/* Eyes */}
-      <ellipse cx="50" cy="44" rx="3" ry="4" fill="#2D2D2D"/>
-      <ellipse cx="70" cy="44" rx="3" ry="4" fill="#2D2D2D"/>
-      <circle cx="51" cy="43" r="1.2" fill="white"/>
-      <circle cx="71" cy="43" r="1.2" fill="white"/>
-      {/* Eyelashes */}
-      <path d="M45 40 L47 42" stroke="#2D2D2D" strokeWidth="0.8"/>
-      <path d="M55 40 L53 42" stroke="#2D2D2D" strokeWidth="0.8"/>
-      <path d="M65 40 L67 42" stroke="#2D2D2D" strokeWidth="0.8"/>
-      <path d="M75 40 L73 42" stroke="#2D2D2D" strokeWidth="0.8"/>
-      {/* Nose */}
-      <path d="M58 48 Q60 52 62 48" fill="none" stroke="#D4A987" strokeWidth="1" strokeLinecap="round"/>
+      <circle cx="52" cy="40" r="2.5" fill="#2D2040"/>
+      <circle cx="68" cy="40" r="2.5" fill="#2D2040"/>
+      {/* Eyebrows */}
+      <path d="M48 36 Q52 34 56 36" fill="none" stroke="#2D2040" strokeWidth="1.2"/>
+      <path d="M64 36 Q68 34 72 36" fill="none" stroke="#2D2040" strokeWidth="1.2"/>
       {/* Smile */}
-      <path d="M52 55 Q60 62 68 55" fill="none" stroke="#E88A8A" strokeWidth="1.5" strokeLinecap="round"/>
-      {/* Blush */}
-      <ellipse cx="42" cy="52" rx="5" ry="3" fill="#FFB5B5" opacity="0.4"/>
-      <ellipse cx="78" cy="52" rx="5" ry="3" fill="#FFB5B5" opacity="0.4"/>
-      {/* Dress/Abaya */}
-      <path d="M28 75 C28 68 92 68 92 75 L98 140 L22 140Z" fill="#059669"/>
-      {/* Dress details */}
-      <path d="M40 80 L60 95 L80 80" fill="none" stroke="#047857" strokeWidth="1.5"/>
-      {/* Sleeves */}
-      <path d="M28 80 L14 118" stroke="#059669" strokeWidth="14" strokeLinecap="round"/>
-      <path d="M92 80 L106 118" stroke="#059669" strokeWidth="14" strokeLinecap="round"/>
+      <path d="M54 48 Q60 54 66 48" fill="none" stroke="#2D2040" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Body - Kameez */}
+      <path d="M32 72 C32 62 44 56 60 56 C76 56 88 62 88 72 L88 130 C88 135 84 138 80 138 L40 138 C36 138 32 135 32 130Z" fill="#7C3AED"/>
+      {/* Neckline */}
+      <path d="M50 56 L60 66 L70 56" fill="none" stroke="#9F7AEA" strokeWidth="1.5"/>
+      {/* Arms */}
+      <path d="M32 72 L20 90 L24 92 L34 78" fill="#7C3AED"/>
+      <path d="M88 72 L100 90 L96 92 L86 78" fill="#7C3AED"/>
       {/* Hands */}
-      <circle cx="14" cy="120" r="6" fill="#F5D0A9"/>
-      <circle cx="106" cy="120" r="6" fill="#F5D0A9"/>
+      <circle cx="22" cy="92" r="5" fill="#D4A574"/>
+      <circle cx="98" cy="92" r="5" fill="#D4A574"/>
+      {/* Dupatta */}
+      <path d="M30 58 Q25 80 30 120" fill="none" stroke="#9F7AEA" strokeWidth="3" opacity="0.6"/>
+      <path d="M90 58 Q95 80 90 120" fill="none" stroke="#9F7AEA" strokeWidth="3" opacity="0.6"/>
     </svg>
   );
 }
@@ -106,17 +82,15 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-4 py-6">
+
         {/* Main Profile Card */}
-        <div className="rounded-2xl overflow-hidden shadow-lg" style={{ background: "linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%)" }}>
-          {/* Icon + Name + Biodata No */}
+        <div className="rounded-2xl overflow-hidden shadow-lg" style={{ background: "linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%)" }}>
           <div className="text-center py-8 px-6">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white/15 border-4 border-white/25 flex items-center justify-center overflow-hidden">
+            <div className="w-28 h-28 mx-auto mb-4 rounded-full bg-white/15 border-4 border-white/25 flex items-center justify-center overflow-hidden">
               {isGroom ? <MaleIcon /> : <FemaleIcon />}
             </div>
-
             <h1 className="text-2xl font-bold text-white mb-2">{biodata.name}</h1>
-
-            <div className="text-lg text-emerald-200 font-medium">
+            <div className="text-lg text-purple-200 font-medium">
               বায়োডাটা নং : <span className="font-bold text-white">{biodata.biodataCode}</span>
             </div>
           </div>
@@ -125,38 +99,21 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
           <div className="bg-white/10 backdrop-blur-sm mx-4 mb-4 rounded-xl overflow-hidden">
             <table className="w-full text-sm">
               <tbody>
-                <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-emerald-200 font-medium w-2/5">বায়োডাটার ধরন</td>
-                  <td className="py-3.5 px-4 text-white font-semibold">{isGroom ? "পাত্রের বায়োডাটা" : "পাত্রীর বায়োডাটা"}</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-emerald-200 font-medium">বৈবাহিক অবস্থা</td>
-                  <td className="py-3.5 px-4 text-white font-semibold">{biodata.maritalStatus}</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-emerald-200 font-medium">জন্মসন</td>
-                  <td className="py-3.5 px-4 text-white font-semibold">{biodata.age} বছর</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-emerald-200 font-medium">উচ্চতা</td>
-                  <td className="py-3.5 px-4 text-white font-semibold">{heightToFt(biodata.height)}</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-emerald-200 font-medium">গায়ের রং</td>
-                  <td className="py-3.5 px-4 text-white font-semibold">{biodata.complexion}</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-emerald-200 font-medium">ওজন</td>
-                  <td className="py-3.5 px-4 text-white font-semibold">{biodata.weight} কেজি</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-emerald-200 font-medium">রক্তের গ্রুপ</td>
-                  <td className="py-3.5 px-4 text-white font-semibold">{biodata.bloodGroup || "জানা নেই"}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 text-emerald-200 font-medium">জাতীয়তা</td>
-                  <td className="py-3.5 px-4 text-white font-semibold">{biodata.nationality}</td>
-                </tr>
+                {[
+                  ["বায়োডাটার ধরন", isGroom ? "পাত্রের বায়োডাটা" : "পাত্রীর বায়োডাটা"],
+                  ["বৈবাহিক অবস্থা", biodata.maritalStatus],
+                  ["জন্মসন", `${biodata.age} বছর`],
+                  ["উচ্চতা", `${heightToFt(biodata.height)} (${biodata.height} সেমি)`],
+                  ["গায়ের রং", biodata.complexion],
+                  ["ওজন", `${biodata.weight} কেজি`],
+                  ["রক্তের গ্রুপ", biodata.bloodGroup || "জানা নেই"],
+                  ["জাতীয়তা", biodata.nationality],
+                ].map(([label, value], i) => (
+                  <tr key={i} className={i % 2 === 0 ? "bg-white/5" : ""}>
+                    <td className="py-3.5 px-4 text-purple-200 font-medium w-2/5">{label}</td>
+                    <td className="py-3.5 px-4 text-white font-semibold">{value}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -176,60 +133,107 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
 
         {/* Detailed Sections */}
         <div className="mt-6 space-y-4">
+
           {/* ধর্মীয় তথ্য */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
-            <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">🕌 ধর্মীয় তথ্য</h2>
-            <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">ধর্ম</span><p className="font-semibold text-gray-800">{biodata.religion}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">মাযহাব</span><p className="font-semibold text-gray-800">{biodata.madhab}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">নামাজ</span><p className="font-semibold text-gray-800">{biodata.prayerRegularity}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">{isGroom ? "দাড়ি/লম্বা চুল" : "হিজাব"}</span><p className="font-semibold text-gray-800">{biodata.hijabOrBeard}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">কুরআন তিলাওয়াত</span><p className="font-semibold text-gray-800">{biodata.quranRecitation}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">দ্বীনি শিক্ষা</span><p className="font-semibold text-gray-800">{biodata.religiousQualification}</p></div>
-            </div>
-          </div>
+          <Section title="🕌 ধর্মীয় তথ্য" items={[
+            ["ধর্ম", biodata.religion],
+            ["মাযহাব", biodata.madhab],
+            ["নামাজ", biodata.prayerRegularity],
+            [isGroom ? "দাড়ি/লম্বা চুল" : "হিজাব", biodata.hijabOrBeard],
+            ["কুরআন তিলাওয়াত", biodata.quranRecitation],
+            ["দ্বীনি শিক্ষা", biodata.religiousQualification],
+          ]} />
 
           {/* শিক্ষা ও পেশা */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
-            <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">🎓 শিক্ষা ও পেশা</h2>
-            <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">শিক্ষার মাধ্যম</span><p className="font-semibold text-gray-800">{biodata.educationMedium}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">শিক্ষাগত যোগ্যতা</span><p className="font-semibold text-gray-800">{biodata.educationLevel}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">প্রতিষ্ঠান</span><p className="font-semibold text-gray-800">{biodata.institution}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">পেশা</span><p className="font-semibold text-gray-800">{biodata.profession}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">মাসিক আয়</span><p className="font-semibold text-gray-800">{biodata.monthlyIncome.toLocaleString()} টাকা</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">অর্থনৈতিক অবস্থা</span><p className="font-semibold text-gray-800">{biodata.economicStatus}</p></div>
-            </div>
-          </div>
+          <Section title="🎓 শিক্ষা ও পেশা" items={[
+            ["শিক্ষার মাধ্যম", biodata.educationMedium],
+            ["শিক্ষাগত যোগ্যতা", biodata.educationLevel],
+            ["প্রতিষ্ঠান", biodata.institution],
+            ["পেশা", biodata.profession],
+            ["মাসিক আয়", `${biodata.monthlyIncome.toLocaleString()} টাকা`],
+            ["অর্থনৈতিক অবস্থা", biodata.economicStatus],
+          ]} />
 
           {/* ঠিকানা */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
-            <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">📍 ঠিকানা</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">বর্তমান ঠিকানা</span><p className="font-semibold text-gray-800">{biodata.presentAddress.district}, {biodata.presentAddress.division}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">স্থায়ী ঠিকানা</span><p className="font-semibold text-gray-800">{biodata.permanentAddress.district}, {biodata.permanentAddress.division}</p></div>
-            </div>
-          </div>
+          <Section title="📍 ঠিকানা" items={[
+            ["বর্তমান ঠিকানা", `${biodata.presentAddress.district}, ${biodata.presentAddress.division}`],
+            ["স্থায়ী ঠিকানা", `${biodata.permanentAddress.district}, ${biodata.permanentAddress.division}`],
+          ]} />
 
           {/* পারিবারিক তথ্য */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
             <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">👨‍👩‍👧‍👦 পারিবারিক তথ্য</h2>
             <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">পরিবারের ধর্মীয় পরিবেশ</span><p className="font-semibold text-gray-800">{biodata.familyReligiousEnvironment}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">পরিবারের অর্থনৈতিক অবস্থা</span><p className="font-semibold text-gray-800">{biodata.familyFinancialCondition}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">বাবার নাম</span><p className="font-semibold text-gray-800">{biodata.fatherName}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">বাবার পেশা</span><p className="font-semibold text-gray-800">{biodata.fatherOccupation}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">মায়ের নাম</span><p className="font-semibold text-gray-800">{biodata.motherName}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">মায়ের পেশা</span><p className="font-semibold text-gray-800">{biodata.motherOccupation}</p></div>
-              <div className="bg-emerald-50 rounded-lg px-3 py-2"><span className="text-gray-500 block">ভাই-বোন</span><p className="font-semibold text-gray-800">{biodata.siblings} জন</p></div>
+              <InfoBox label="পরিবারের ধরন" value={biodata.familyReligiousEnvironment} />
+              <InfoBox label="পরিবারের অবস্থা" value={biodata.familyFinancialCondition} />
+              <InfoBox label="পরিবারের সদস্য সংখ্যা" value={`${biodata.siblings} জন`} />
             </div>
           </div>
 
-          {/* অন্যান্য */}
+          {/* বাবা */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
-            <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">ℹ️ অন্যান্য তথ্য</h2>
+            <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">👨 বাবা</h2>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <InfoBox label="নাম" value={biodata.fatherName} />
+              <InfoBox label="পেশা" value={biodata.fatherOccupation} />
+              <InfoBox label="বেঁচে আছেন" value={biodata.fatherAlive ? "হ্যাঁ" : "না"} />
+            </div>
+          </div>
+
+          {/* মা */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+            <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">👩 মা</h2>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <InfoBox label="নাম" value={biodata.motherName} />
+              <InfoBox label="পেশা" value={biodata.motherOccupation} />
+              <InfoBox label="বেঁচে আছেন" value={biodata.motherAlive ? "হ্যাঁ" : "না"} />
+            </div>
+          </div>
+
+          {/* ভাই-বোন */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+            <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">👨‍👩‍👧 ভাই-বোন</h2>
             <div className="text-sm text-gray-600 bg-emerald-50 rounded-lg px-3 py-2">
-              <p>বিস্তারিত তথ্য জানতে যোগাযোগ করুন।</p>
+              <p>মোট ভাই-বোন: {biodata.siblings} জন</p>
+            </div>
+          </div>
+
+          {/* যে ধরনের জীবনসঙ্গী খুঁজছেন */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+            <h2 className="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">💖 যে ধরনের জীবনসঙ্গী খুঁজছেন</h2>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <InfoBox label="বয়স" value={biodata.partnerPreferences.ageRange} />
+              <InfoBox label="উচ্চতা" value={biodata.partnerPreferences.height} />
+              <InfoBox label="গায়ের রং" value={biodata.partnerPreferences.complexion} />
+              <InfoBox label="শিক্ষাগত যোগ্যতা" value={biodata.partnerPreferences.education} />
+              <InfoBox label="অবস্থান" value={biodata.partnerPreferences.location} />
+              <InfoBox label="বৈবাহিক অবস্থা" value={biodata.partnerPreferences.maritalStatus} />
+              <InfoBox label="পেশা" value={biodata.partnerPreferences.profession} />
+            </div>
+          </div>
+
+          {/* Contact Section */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+            <h2 className="text-lg font-bold text-emerald-900 mb-4 text-center">💬 যোগাযোগ</h2>
+            <div className="bg-emerald-50 rounded-lg p-4 mb-4 text-center">
+              <p className="text-sm text-gray-600">
+                <span className="font-bold text-emerald-700">সতর্কতা</span> - বিয়ের সিদ্ধান্ত নেয়ার পূর্বে স্বান্তিভাবে খোঁজ নিয়ে বায়োডাটার সমস্ত তথ্য যাচাই করবেন।
+              </p>
+            </div>
+            <p className="text-center text-gray-600 text-sm mb-5">
+              এই বায়োডাটার অভিভাবকের যোগাযোগের তথ্য দেখতে আপনার ১টি কনেকশন খরচ হবে।
+            </p>
+            <button className="w-full py-3.5 rounded-full text-white font-bold text-sm shadow-lg transition-all hover:shadow-xl" style={{ background: "linear-gradient(135deg, #059669, #047857)" }}>
+              যোগাযোগের তথ্য দেখুন
+            </button>
+            <div className="flex items-center gap-3 mt-4 bg-gray-50 rounded-xl p-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-md">
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.2 5.42 3.15 7.17.16.15.26.36.28.58l.05.95.87-.6c.27-.18.57-.28.88-.28.33 0 .65.08.95.21.58.26 1.22.41 1.87.41 5.64 0 10-3.87 10-8.7C19.05 6.13 17.64 2 12 2z"/></svg>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-800">Messenger</p>
+                <p className="text-xs text-gray-500">কিভাবে যোগাযোগ তথ্য দেখবেন</p>
+              </div>
             </div>
           </div>
 
@@ -242,6 +246,28 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Section({ title, items }: { title: string; items: [string, string][] }) {
+  return (
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+      <h2 className="text-base font-bold text-emerald-900 mb-3">{title}</h2>
+      <div className="grid grid-cols-2 gap-3 text-sm">
+        {items.map(([label, value], i) => (
+          <InfoBox key={i} label={label} value={value} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function InfoBox({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-emerald-50 rounded-lg px-3 py-2">
+      <span className="text-gray-500 block">{label}</span>
+      <p className="font-semibold text-gray-800">{value}</p>
     </div>
   );
 }
