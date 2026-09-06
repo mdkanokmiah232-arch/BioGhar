@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="col-span-1">
                 <div className="flex items-center space-x-2 mb-4">
-                  <span className="text-2xl">🕌</span>
+                  <img src="/logo.webp" alt="BioGhar" className="h-8 w-auto" />
                   <span className="text-xl font-bold text-emerald-400">BioGhar</span>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">বাংলাদেশের সবচেয়ে বিশ্বস্ত ইসলামিক বায়োডাটা প্ল্যাটফর্ম।</p>
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
             <div className="mt-10 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center">
               <p className="text-gray-400 text-sm">© {new Date().getFullYear()} BioGhar। সর্বস্বত্ব সংরক্ষিত।</p>
-              <p className="text-gray-500 text-xs mt-2 sm:mt-0">🕌 ইসলামিক মূল্যবোধের উপর ভিত্তি করে নির্মিত</p>
+              <p className="text-gray-500 text-xs mt-2 sm:mt-0">ইসলামিক মূল্যবোধের উপর ভিত্তি করে নির্মিত</p>
             </div>
           </div>
         </footer>
