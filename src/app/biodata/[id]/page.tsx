@@ -207,8 +207,8 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
               <InfoBox label="গায়ের রং" value={biodata.partnerPreferences.complexion} />
               <InfoBox label="শিক্ষাগত যোগ্যতা" value={biodata.partnerPreferences.education} />
               <InfoBox label="অবস্থান" value={biodata.partnerPreferences.location} />
-              <InfoBox label="বৈবাহিক অবস্থা" value={biodata.partnerPreferences.maritalStatus} />
-              <InfoBox label="পেশা" value={biodata.partnerPreferences.profession} />
+              <InfoBox label="বৈবাহিক অবস্থা" value={biodata.maritalStatus} />
+              <InfoBox label="পেশা" value={biodata.profession} />
             </div>
           </div>
 
