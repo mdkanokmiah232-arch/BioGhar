@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { biodatas, districts } from "@/data/biodatas";
 
@@ -9,10 +10,12 @@ const uniqueEducations = [...new Set(biodatas.map((b) => b.educationLevel))].sor
 const uniqueMaritalStatuses = [...new Set(biodatas.map((b) => b.maritalStatus))].sort();
 
 export default function BiodataSearchPage() {
-  const [lookingFor, setLookingFor] = useState("all");
+  const searchParams = useSearchParams();
+
+  const [lookingFor, setLookingFor] = useState(searchParams.get("lookingFor") || "all");
   const [maritalStatus, setMaritalStatus] = useState("all");
-  const [ageMin, setAgeMin] = useState("");
-  const [ageMax, setAgeMax] = useState("");
+  const [ageMin, setAgeMin] = useState(searchParams.get("ageMin") || "");
+  const [ageMax, setAgeMax] = useState(searchParams.get("ageMax") || "");
   const [district, setDistrict] = useState("all");
   const [education, setEducation] = useState("all");
   const [profession, setProfession] = useState("all");
@@ -41,14 +44,14 @@ export default function BiodataSearchPage() {
             <span className="text-xl font-bold text-emerald-800">BioGhar</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-            <Link href="/biodata" className="text-emerald-700 font-semibold">Search</Link>
-            <Link href="/about" className="hover:text-emerald-700 transition">About</Link>
-            <Link href="/faq" className="hover:text-emerald-700 transition">FAQ</Link>
+            <Link href="/biodata" className="text-emerald-700 font-semibold">খুঁজুন</Link>
+            <Link href="/about" className="hover:text-emerald-700 transition">আমাদের সম্পর্কে</Link>
+            <Link href="/faq" className="hover:text-emerald-700 transition">প্রশ্নোত্তর</Link>
           </nav>
           <div className="flex items-center gap-3">
-            <Link href="/login" className="text-sm text-gray-600 hover:text-emerald-700 transition">Login</Link>
+            <Link href="/login" className="text-sm text-gray-600 hover:text-emerald-700 transition">লগইন</Link>
             <Link href="/register" className="rounded-full bg-emerald-700 px-5 py-2 text-sm font-semibold text-white hover:bg-emerald-800 transition">
-              Register
+              রেজিস্টার
             </Link>
           </div>
         </div>

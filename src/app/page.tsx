@@ -1,61 +1,79 @@
-import Link from 'next/link';
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const stats = [
-  { number: '10000+', label: 'বায়োডাটা', icon: '📋' },
-  { number: '5500+', label: 'পাত্র', icon: '👨' },
-  { number: '4500+', label: 'পাত্রী', icon: '👩' },
-  { number: '1200+', label: 'বিয়ে সম্পন্ন', icon: '💍' },
+  { number: "10000+", label: "বায়োডাটা", icon: "📋" },
+  { number: "5500+", label: "পাত্র", icon: "👨" },
+  { number: "4500+", label: "পাত্রী", icon: "👩" },
+  { number: "1200+", label: "বিয়ে সম্পন্ন", icon: "💍" },
 ];
 
 const steps = [
   {
-    number: '১',
-    title: 'বায়োডাটা তৈরি করুন',
-    description: 'আপনার প্রোফাইল তৈরি করুন এবং বিস্তারিত তথ্য প্রদান করুন।',
-    icon: '📝',
+    number: "১",
+    title: "বায়োডাটা তৈরি করুন",
+    description: "আপনার প্রোফাইল তৈরি করুন এবং বিস্তারিত তথ্য প্রদান করুন।",
+    icon: "📝",
   },
   {
-    number: '২',
-    title: 'বায়োডাটা খুঁজুন',
-    description: 'আপনার পছন্দের মাপদণ্ড অনুযায়ী বায়োডাটা সার্চ করুন।',
-    icon: '🔍',
+    number: "২",
+    title: "বায়োডাটা খুঁজুন",
+    description: "আপনার পছন্দের মাপদণ্ড অনুযায়ী বায়োডাটা সার্চ করুন।",
+    icon: "🔍",
   },
   {
-    number: '৩',
-    title: 'যোগাযোগ করুন',
-    description: 'পছন্দের বায়োডাটার সাথে যোগাযোগ করুন।',
-    icon: '💬',
+    number: "৩",
+    title: "যোগাযোগ করুন",
+    description: "পছন্দের বায়োডাটার সাথে যোগাযোগ করুন।",
+    icon: "💬",
   },
   {
-    number: '৪',
-    title: 'বিয়ে সম্পন্ন করুন',
-    description: 'আল্লাহর রহমতে আপনার জীবনসঙ্গীর সাথে বিয়ে সম্পন্ন করুন।',
-    icon: '🎉',
+    number: "৪",
+    title: "বিয়ে সম্পন্ন করুন",
+    description: "আল্লাহর রহমতে আপনার জীবনসঙ্গীর সাথে বিয়ে সম্পন্ন করুন।",
+    icon: "🎉",
   },
 ];
 
 const testimonials = [
   {
-    name: 'মোঃ আহমেদ হাসান',
-    location: 'ঢাকা',
-    text: 'BioGhar-এর মাধ্যমে আমি আমার জীবনসঙ্গীকে খুঁজে পেয়েছি। এটি সত্যিই একটি বিশ্বস্ত প্ল্যাটফর্ম।',
+    name: "মোঃ আহমেদ হাসান",
+    location: "ঢাকা",
+    text: "BioGhar-এর মাধ্যমে আমি আমার জীবনসঙ্গীকে খুঁজে পেয়েছি। এটি সত্যিই একটি বিশ্বস্ত প্ল্যাটফর্ম।",
     rating: 5,
   },
   {
-    name: 'ফাতিমা আক্তার',
-    location: 'চট্টগ্রাম',
-    text: 'আমার মেয়ের জন্য এখানে ভালো প্রোফাইল পেয়েছি। সেবা অনেক ভালো।',
+    name: "ফাতিমা আক্তার",
+    location: "চট্টগ্রাম",
+    text: "আমার মেয়ের জন্য এখানে ভালো প্রোফাইল পেয়েছি। সেবা অনেক ভালো।",
     rating: 5,
   },
   {
-    name: 'মোঃ রাকিবুল হাসান',
-    location: 'সিলেট',
-    text: 'ইসলামিক মূল্যবোধের উপর ভিত্তি করে কাজ করায় BioGhar-কে পছন্দ করি।',
+    name: "মোঃ রাকিবুল হাসান",
+    location: "সিলেট",
+    text: "ইসলামিক মূল্যবোধের উপর ভিত্তি করে কাজ করায় BioGhar-কে পছন্দ করি।",
     rating: 5,
   },
 ];
 
 export default function HomePage() {
+  const router = useRouter();
+  const [lookingFor, setLookingFor] = useState("");
+  const [ageFrom, setAgeFrom] = useState("");
+  const [ageTo, setAgeTo] = useState("");
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (lookingFor) params.set("lookingFor", lookingFor);
+    if (ageFrom) params.set("ageMin", ageFrom);
+    if (ageTo) params.set("ageMax", ageTo);
+    const qs = params.toString();
+    router.push(`/biodata${qs ? `?${qs}` : ""}`);
+  };
+
   return (
     <div className="bg-pattern">
       {/* Hero Section */}
@@ -86,13 +104,21 @@ export default function HomePage() {
 
             {/* Search Box */}
             <div className="bg-white rounded-xl p-4 md:p-6 shadow-2xl max-w-2xl mx-auto">
-              <div className="flex flex-col md:flex-row gap-4">
-                <select className="search-select flex-1">
+              <div className="flex flex-col md:flex-row gap-3">
+                <select
+                  className="search-select flex-1"
+                  value={lookingFor}
+                  onChange={(e) => setLookingFor(e.target.value)}
+                >
                   <option value="">কার জন্য খুঁজছেন?</option>
                   <option value="groom">পাত্র</option>
                   <option value="bride">পাত্রী</option>
                 </select>
-                <select className="search-select w-full md:w-40">
+                <select
+                  className="search-select w-full md:w-36"
+                  value={ageFrom}
+                  onChange={(e) => setAgeFrom(e.target.value)}
+                >
                   <option value="">বয়স (থেকে)</option>
                   {Array.from({ length: 20 }, (_, i) => (
                     <option key={i + 18} value={i + 18}>
@@ -100,7 +126,11 @@ export default function HomePage() {
                     </option>
                   ))}
                 </select>
-                <select className="search-select w-full md:w-40">
+                <select
+                  className="search-select w-full md:w-36"
+                  value={ageTo}
+                  onChange={(e) => setAgeTo(e.target.value)}
+                >
                   <option value="">বয়স (পর্যন্ত)</option>
                   {Array.from({ length: 20 }, (_, i) => (
                     <option key={i + 20} value={i + 20}>
@@ -109,7 +139,7 @@ export default function HomePage() {
                   ))}
                 </select>
               </div>
-              <button className="btn-primary w-full mt-4 text-lg">
+              <button onClick={handleSearch} className="btn-primary w-full mt-4 text-lg">
                 🔍 বায়োডাটা খুঁজুন
               </button>
             </div>
@@ -150,7 +180,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center relative">
                 <div className="step-circle">{step.number}</div>
                 <div className="mt-4 mb-2 text-4xl">{step.icon}</div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
@@ -158,7 +188,7 @@ export default function HomePage() {
                 </h3>
                 <p className="text-gray-600 text-sm">{step.description}</p>
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 text-emerald-300">
+                  <div className="hidden md:block absolute right-0 top-6 text-emerald-300 text-2xl">
                     →
                   </div>
                 )}
@@ -179,7 +209,7 @@ export default function HomePage() {
             জীবনসঙ্গীকে খুঁজে নিন।
           </p>
           <Link
-            href="/create-biodata"
+            href="/register"
             className="inline-block bg-white text-emerald-700 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-lg text-lg"
           >
             📝 বিনামূল্যে বায়োডাটা তৈরি করুন
@@ -289,16 +319,10 @@ export default function HomePage() {
             আপনার জীবনসঙ্গীকে খুঁজে নিতে আজই রেজিস্ট্রেশন করুন
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/register"
-              className="btn-primary text-lg"
-            >
+            <Link href="/register" className="btn-primary text-lg">
               রেজিস্ট্রেশন করুন
             </Link>
-            <Link
-              href="/search"
-              className="btn-secondary text-lg"
-            >
+            <Link href="/biodata" className="btn-secondary text-lg">
               বায়োডাটা খুঁজুন
             </Link>
           </div>

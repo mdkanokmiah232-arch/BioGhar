@@ -28,6 +28,99 @@ body {
   box-shadow: 0 12px 24px rgba(5, 150, 105, 0.15);
 }
 
+/* Search select */
+.search-select {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid #d1d5db;
+  font-size: 0.95rem;
+  color: #374151;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-select:focus {
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+}
+
+/* Primary button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #059669, #047857);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #047857, #065f46);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+/* Secondary button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid #059669;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-secondary:hover {
+  background: #ecfdf5;
+  transform: translateY(-1px);
+}
+
+/* Step circle */
+.step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #059669, #047857);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Testimonial card */
+.testimonial-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  border: 1px solid #f0fdf4;
+}
+
+/* Bg pattern */
+.bg-pattern {
+  background-color: var(--bg-cream);
+  background-image: radial-gradient(circle at 20% 50%, rgba(5,150,105,0.03) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(5,150,105,0.03) 0%, transparent 50%);
+}
+
 /* Emerald gradient */
 .bg-emerald-gradient {
   background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%);
