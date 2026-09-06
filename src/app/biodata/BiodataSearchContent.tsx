@@ -20,27 +20,30 @@ function CollapsibleSection({ title, defaultOpen = false, children }: { title: s
 
 function MaleMini() {
   return (
-    <svg viewBox="0 0 60 60" className="w-8 h-8">
-      <circle cx="30" cy="18" r="11" fill="#3D3266"/>
-      <rect x="19" y="10" width="22" height="7" rx="2" fill="#3D3266"/>
-      <circle cx="26" cy="18" r="1.2" fill="#1a1a2e"/><circle cx="34" cy="18" r="1.2" fill="#1a1a2e"/>
-      <path d="M22 32 C22 27 25 24 30 24 C35 24 38 27 38 32 L38 50 C38 52 36 53 34 53 L26 53 C24 53 22 52 22 50Z" fill="#3D3266"/>
-      <path d="M22 21 Q25 28 30 29 Q35 28 38 21" fill="#3D3266" opacity="0.5"/>
+    <svg viewBox="0 0 60 60" className="w-full h-full">
+      <circle cx="30" cy="18" r="11" fill="#065f46"/>
+      <ellipse cx="30" cy="13" rx="12" ry="5" fill="#047857"/>
+      <rect x="18" y="10" width="24" height="6" rx="2" fill="#047857"/>
+      <circle cx="26" cy="18" r="1" fill="#034d38"/><circle cx="34" cy="18" r="1" fill="#034d38"/>
+      <path d="M27 23 Q30 26 33 23" fill="none" stroke="#034d38" strokeWidth="0.8" strokeLinecap="round"/>
+      <path d="M18 32 C18 28 23 25 30 25 C37 25 42 28 42 32 L42 52 C42 54 40 55 38 55 L22 55 C20 55 18 54 18 52Z" fill="#065f46"/>
+      <path d="M26 25 L30 31 L34 25" fill="none" stroke="#10b981" strokeWidth="1"/>
+      <path d="M22 22 Q24 29 30 30 Q36 29 38 22" fill="#047857" opacity="0.6"/>
     </svg>
   );
 }
 
 function FemaleMini() {
   return (
-    <svg viewBox="0 0 60 70" className="w-8 h-8">
-      <ellipse cx="30" cy="18" rx="15" ry="16" fill="#059669"/>
-      <ellipse cx="30" cy="20" rx="10" ry="11" fill="#D4A574"/>
-      <circle cx="26" cy="19" r="1.5" fill="#1a1a2e"/><circle cx="34" cy="19" r="1.5" fill="#1a1a2e"/>
-      <path d="M27 24 Q30 27 33 24" fill="none" stroke="#1a1a2e" strokeWidth="1"/>
-      <path d="M16 36 C16 30 22 27 30 27 C38 27 44 30 44 36 L44 64 C44 66 42 67 40 67 L20 67 C18 67 16 66 16 64Z" fill="#059669"/>
-      <path d="M25 27 L30 33 L35 27" fill="none" stroke="#10b981" strokeWidth="1"/>
-      <path d="M16 36 L10 46 L13 47 L18 40" fill="#059669"/>
-      <path d="M44 36 L50 46 L47 47 L42 40" fill="#059669"/>
+    <svg viewBox="0 0 60 70" className="w-full h-full">
+      <ellipse cx="30" cy="20" rx="15" ry="16" fill="#059669"/>
+      <ellipse cx="30" cy="22" rx="9" ry="10" fill="#D4A574"/>
+      <circle cx="26" cy="21" r="1.2" fill="#034d38"/><circle cx="34" cy="21" r="1.2" fill="#034d38"/>
+      <path d="M27 26 Q30 29 33 26" fill="none" stroke="#034d38" strokeWidth="0.8" strokeLinecap="round"/>
+      <path d="M16 38 C16 32 22 28 30 28 C38 28 44 32 44 38 L44 66 C44 68 42 69 40 69 L20 69 C18 69 16 68 16 66Z" fill="#059669"/>
+      <path d="M25 28 L30 34 L35 28" fill="none" stroke="#10b981" strokeWidth="0.8"/>
+      <path d="M16 38 L10 48 L13 49 L18 42" fill="#059669"/>
+      <path d="M44 38 L50 48 L47 49 L42 42" fill="#059669"/>
     </svg>
   );
 }
@@ -178,7 +181,7 @@ export default function BiodataSearchContent() {
                       <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group-hover:shadow-md transition-all">
                         {/* Header with icon */}
                         <div className={`px-4 py-5 flex items-center gap-3 ${isGroom ? "bg-gradient-to-r from-blue-50 to-blue-100/50" : "bg-gradient-to-r from-pink-50 to-pink-100/50"}`}>
-                          <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isGroom ? "bg-blue-200" : "bg-pink-200"}`}>
+                          <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isGroom ? "bg-white shadow-sm" : "bg-gray-900 shadow-sm"}`}>
                             {isGroom ? <MaleMini /> : <FemaleMini />}
                           </div>
                           <div className="flex-1">

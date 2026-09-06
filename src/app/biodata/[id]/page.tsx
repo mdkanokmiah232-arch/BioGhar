@@ -8,36 +8,47 @@ export function generateStaticParams() {
 
 function MaleIcon() {
   return (
-    <svg viewBox="0 0 120 120" className="w-full h-full">
-      <circle cx="60" cy="38" r="22" fill="#065f46"/>
-      <ellipse cx="60" cy="28" rx="24" ry="10" fill="#047857"/>
-      <rect x="38" y="20" width="44" height="12" rx="4" fill="#047857"/>
-      <circle cx="52" cy="38" r="2" fill="#034d38"/><circle cx="68" cy="38" r="2" fill="#034d38"/>
-      <path d="M54 46 Q60 52 66 46" fill="none" stroke="#034d38" strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M36 65 C36 58 48 52 60 52 C72 52 84 58 84 65 L84 100 C84 105 80 108 76 108 L44 108 C40 108 36 105 36 100Z" fill="#065f46"/>
-      <path d="M52 52 L60 62 L68 52" fill="none" stroke="#10b981" strokeWidth="2"/>
-      <path d="M36 65 L24 80 L28 82 L38 70" fill="#065f46"/>
-      <path d="M84 65 L96 80 L92 82 L82 70" fill="#065f46"/>
-      <path d="M44 44 Q48 56 60 58 Q72 56 76 44" fill="#047857" opacity="0.6"/>
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      {/* Green circle border */}
+      <circle cx="50" cy="50" r="48" fill="none" stroke="#059669" strokeWidth="4"/>
+      {/* White background inside circle */}
+      <circle cx="50" cy="50" r="46" fill="white"/>
+      {/* Shoulders and upper body */}
+      <ellipse cx="50" cy="82" rx="22" ry="16" fill="#059669"/>
+      {/* Neck */}
+      <rect x="44" y="60" width="12" height="12" rx="2" fill="#059669"/>
+      {/* Head */}
+      <ellipse cx="50" cy="46" rx="15" ry="17" fill="#059669"/>
+      {/* Islamic topi/cap - flat top rounded edges */}
+      <rect x="36" y="28" width="28" height="10" rx="3" fill="#059669"/>
+      <rect x="34" y="32" width="32" height="5" rx="2" fill="#059669"/>
+      {/* Beard - draping from chin */}
+      <path d="M37 52 Q38 64 50 66 Q62 64 63 52" fill="#059669"/>
+      {/* Ears */}
+      <ellipse cx="35" cy="46" rx="3" ry="5" fill="#059669"/>
+      <ellipse cx="65" cy="46" rx="3" ry="5" fill="#059669"/>
     </svg>
   );
 }
 
 function FemaleIcon() {
   return (
-    <svg viewBox="0 0 120 140" className="w-full h-full">
-      <ellipse cx="60" cy="40" rx="30" ry="32" fill="#059669"/>
-      <ellipse cx="60" cy="42" rx="18" ry="20" fill="#D4A574"/>
-      <circle cx="52" cy="40" r="2.5" fill="#034d38"/><circle cx="68" cy="40" r="2.5" fill="#034d38"/>
-      <path d="M54 48 Q60 54 66 48" fill="none" stroke="#034d38" strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M32 72 C32 62 44 56 60 56 C76 56 88 62 88 72 L88 130 C88 135 84 138 80 138 L40 138 C36 138 32 135 32 130Z" fill="#059669"/>
-      <path d="M50 56 L60 66 L70 56" fill="none" stroke="#10b981" strokeWidth="1.5"/>
-      <path d="M32 72 L20 90 L24 92 L34 78" fill="#059669"/>
-      <path d="M88 72 L100 90 L96 92 L86 78" fill="#059669"/>
-      <circle cx="22" cy="92" r="5" fill="#D4A574"/>
-      <circle cx="98" cy="92" r="5" fill="#D4A574"/>
-      <path d="M30 58 Q25 80 30 120" fill="none" stroke="#10b981" strokeWidth="3" opacity="0.6"/>
-      <path d="M90 58 Q95 80 90 120" fill="none" stroke="#10b981" strokeWidth="3" opacity="0.6"/>
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      {/* Green circle border */}
+      <circle cx="50" cy="50" r="48" fill="none" stroke="#059669" strokeWidth="4"/>
+      {/* Black background inside circle */}
+      <circle cx="50" cy="50" r="46" fill="black"/>
+      {/* Hijab body draping down over shoulders */}
+      <path d="M18 90 Q18 70 30 58 Q36 54 50 52 Q64 54 70 58 Q82 70 82 90 L82 96 Q82 98 80 98 L20 98 Q18 98 18 96 Z" fill="#059669"/>
+      {/* Hijab head covering */}
+      <ellipse cx="50" cy="38" rx="24" ry="26" fill="#059669"/>
+      {/* Oval face opening (niqab style) */}
+      <ellipse cx="50" cy="42" rx="10" ry="13" fill="black"/>
+      {/* Eyes - visible through the face opening */}
+      <ellipse cx="44" cy="40" rx="3" ry="2" fill="white"/>
+      <ellipse cx="56" cy="40" rx="3" ry="2" fill="white"/>
+      <circle cx="44" cy="40" r="1.5" fill="black"/>
+      <circle cx="56" cy="40" r="1.5" fill="black"/>
     </svg>
   );
 }
