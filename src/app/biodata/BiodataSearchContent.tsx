@@ -116,13 +116,10 @@ export default function BiodataSearchContent() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-gray-600 mb-1">বয়স</label>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">{ageMin}</span>
-                          <input type="range" min="18" max="60" value={ageMin} onChange={(e) => { const v = Number(e.target.value); if (v < ageMax) setAgeMin(v); }} className="flex-1 h-1.5 accent-emerald-600" />
-                          <span className="text-xs text-gray-400">—</span>
-                          <input type="range" min="18" max="60" value={ageMax} onChange={(e) => { const v = Number(e.target.value); if (v > ageMin) setAgeMax(v); }} className="flex-1 h-1.5 accent-emerald-600" />
-                          <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">{ageMax}</span>
+                        <label className="block text-xs font-medium text-gray-600 mb-1">বয়স (ন্যূনতম - সর্বোচ্চ)</label>
+                        <div className="flex gap-2">
+                          <input type="number" placeholder="ন্যূনতম" value={ageMin === 18 ? "" : ageMin} onChange={(e) => { const v = Number(e.target.value); if (v && v >= 18 && v < ageMax) setAgeMin(v); else if (!e.target.value) setAgeMin(18); }} className="w-1/2 rounded-lg border border-gray-300 px-2.5 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                          <input type="number" placeholder="সর্বোচ্চ" value={ageMax === 60 ? "" : ageMax} onChange={(e) => { const v = Number(e.target.value); if (v && v > ageMin && v <= 60) setAgeMax(v); else if (!e.target.value) setAgeMax(60); }} className="w-1/2 rounded-lg border border-gray-300 px-2.5 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500" />
                         </div>
                       </div>
                     </div>
