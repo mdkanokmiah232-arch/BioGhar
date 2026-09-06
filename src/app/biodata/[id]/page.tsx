@@ -10,23 +10,23 @@ function MaleIcon() {
   return (
     <svg viewBox="0 0 120 120" className="w-full h-full">
       {/* Head */}
-      <circle cx="60" cy="38" r="22" fill="#5B4A8A"/>
+      <circle cx="60" cy="38" r="22" fill="#047857"/>
       {/* Topi */}
-      <ellipse cx="60" cy="28" rx="24" ry="10" fill="#3D3266"/>
-      <rect x="38" y="20" width="44" height="12" rx="4" fill="#3D3266"/>
+      <ellipse cx="60" cy="28" rx="24" ry="10" fill="#065f46"/>
+      <rect x="38" y="20" width="44" height="12" rx="4" fill="#065f46"/>
       {/* Face */}
-      <circle cx="52" cy="38" r="2" fill="#2D2040"/>
-      <circle cx="68" cy="38" r="2" fill="#2D2040"/>
-      <path d="M54 46 Q60 52 66 46" fill="none" stroke="#2D2040" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="52" cy="38" r="2" fill="#1a1a2e"/>
+      <circle cx="68" cy="38" r="2" fill="#1a1a2e"/>
+      <path d="M54 46 Q60 52 66 46" fill="none" stroke="#1a1a2e" strokeWidth="1.5" strokeLinecap="round"/>
       {/* Body - Punjabi */}
-      <path d="M36 65 C36 58 48 52 60 52 C72 52 84 58 84 65 L84 100 C84 105 80 108 76 108 L44 108 C40 108 36 105 36 100Z" fill="#5B4A8A"/>
+      <path d="M36 65 C36 58 48 52 60 52 C72 52 84 58 84 65 L84 100 C84 105 80 108 76 108 L44 108 C40 108 36 105 36 100Z" fill="#047857"/>
       {/* Collar */}
-      <path d="M52 52 L60 62 L68 52" fill="none" stroke="#8B7AB8" strokeWidth="2"/>
+      <path d="M52 52 L60 62 L68 52" fill="none" stroke="#34d399" strokeWidth="2"/>
       {/* Arms */}
-      <path d="M36 65 L24 80 L28 82 L38 70" fill="#5B4A8A"/>
-      <path d="M84 65 L96 80 L92 82 L82 70" fill="#5B4A8A"/>
+      <path d="M36 65 L24 80 L28 82 L38 70" fill="#047857"/>
+      <path d="M84 65 L96 80 L92 82 L82 70" fill="#047857"/>
       {/* Beard */}
-      <path d="M44 44 Q48 56 60 58 Q72 56 76 44" fill="#3D3266" opacity="0.6"/>
+      <path d="M44 44 Q48 56 60 58 Q72 56 76 44" fill="#065f46" opacity="0.6"/>
     </svg>
   );
 }
@@ -35,30 +35,30 @@ function FemaleIcon() {
   return (
     <svg viewBox="0 0 120 140" className="w-full h-full">
       {/* Hijab */}
-      <ellipse cx="60" cy="40" rx="30" ry="32" fill="#7C3AED"/>
+      <ellipse cx="60" cy="40" rx="30" ry="32" fill="#059669"/>
       {/* Face */}
       <ellipse cx="60" cy="42" rx="18" ry="20" fill="#D4A574"/>
       {/* Eyes */}
-      <circle cx="52" cy="40" r="2.5" fill="#2D2040"/>
-      <circle cx="68" cy="40" r="2.5" fill="#2D2040"/>
+      <circle cx="52" cy="40" r="2.5" fill="#1a1a2e"/>
+      <circle cx="68" cy="40" r="2.5" fill="#1a1a2e"/>
       {/* Eyebrows */}
-      <path d="M48 36 Q52 34 56 36" fill="none" stroke="#2D2040" strokeWidth="1.2"/>
-      <path d="M64 36 Q68 34 72 36" fill="none" stroke="#2D2040" strokeWidth="1.2"/>
+      <path d="M48 36 Q52 34 56 36" fill="none" stroke="#1a1a2e" strokeWidth="1.2"/>
+      <path d="M64 36 Q68 34 72 36" fill="none" stroke="#1a1a2e" strokeWidth="1.2"/>
       {/* Smile */}
-      <path d="M54 48 Q60 54 66 48" fill="none" stroke="#2D2040" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M54 48 Q60 54 66 48" fill="none" stroke="#1a1a2e" strokeWidth="1.5" strokeLinecap="round"/>
       {/* Body - Kameez */}
-      <path d="M32 72 C32 62 44 56 60 56 C76 56 88 62 88 72 L88 130 C88 135 84 138 80 138 L40 138 C36 138 32 135 32 130Z" fill="#7C3AED"/>
+      <path d="M32 72 C32 62 44 56 60 56 C76 56 88 62 88 72 L88 130 C88 135 84 138 80 138 L40 138 C36 138 32 135 32 130Z" fill="#059669"/>
       {/* Neckline */}
-      <path d="M50 56 L60 66 L70 56" fill="none" stroke="#9F7AEA" strokeWidth="1.5"/>
+      <path d="M50 56 L60 66 L70 56" fill="none" stroke="#6ee7b7" strokeWidth="1.5"/>
       {/* Arms */}
-      <path d="M32 72 L20 90 L24 92 L34 78" fill="#7C3AED"/>
-      <path d="M88 72 L100 90 L96 92 L86 78" fill="#7C3AED"/>
+      <path d="M32 72 L20 90 L24 92 L34 78" fill="#059669"/>
+      <path d="M88 72 L100 90 L96 92 L86 78" fill="#059669"/>
       {/* Hands */}
       <circle cx="22" cy="92" r="5" fill="#D4A574"/>
       <circle cx="98" cy="92" r="5" fill="#D4A574"/>
       {/* Dupatta */}
-      <path d="M30 58 Q25 80 30 120" fill="none" stroke="#9F7AEA" strokeWidth="3" opacity="0.6"/>
-      <path d="M90 58 Q95 80 90 120" fill="none" stroke="#9F7AEA" strokeWidth="3" opacity="0.6"/>
+      <path d="M30 58 Q25 80 30 120" fill="none" stroke="#6ee7b7" strokeWidth="3" opacity="0.6"/>
+      <path d="M90 58 Q95 80 90 120" fill="none" stroke="#6ee7b7" strokeWidth="3" opacity="0.6"/>
     </svg>
   );
 }
@@ -84,13 +84,13 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
       <div className="max-w-2xl mx-auto px-4 py-6">
 
         {/* Main Profile Card */}
-        <div className="rounded-2xl overflow-hidden shadow-lg" style={{ background: "linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%)" }}>
+        <div className="rounded-2xl overflow-hidden shadow-lg" style={{ background: "linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%)" }}>
           <div className="text-center py-8 px-6">
             <div className="w-28 h-28 mx-auto mb-4 rounded-full bg-white/15 border-4 border-white/25 flex items-center justify-center overflow-hidden">
               {isGroom ? <MaleIcon /> : <FemaleIcon />}
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">{biodata.name}</h1>
-            <div className="text-lg text-purple-200 font-medium">
+            <div className="text-lg text-emerald-100 font-medium">
               বায়োডাটা নং : <span className="font-bold text-white">{biodata.biodataCode}</span>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
                   ["জাতীয়তা", biodata.nationality],
                 ].map(([label, value], i) => (
                   <tr key={i} className={i % 2 === 0 ? "bg-white/5" : ""}>
-                    <td className="py-3.5 px-4 text-purple-200 font-medium w-2/5">{label}</td>
+                    <td className="py-3.5 px-4 text-emerald-100 font-medium w-2/5">{label}</td>
                     <td className="py-3.5 px-4 text-white font-semibold">{value}</td>
                   </tr>
                 ))}
