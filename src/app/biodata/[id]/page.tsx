@@ -36,19 +36,19 @@ function FemaleIcon() {
     <svg viewBox="0 0 100 100" className="w-full h-full">
       {/* Green circle border */}
       <circle cx="50" cy="50" r="48" fill="none" stroke="#059669" strokeWidth="4"/>
-      {/* Black background inside circle */}
-      <circle cx="50" cy="50" r="46" fill="black"/>
-      {/* Hijab body draping down over shoulders */}
-      <path d="M18 90 Q18 70 30 58 Q36 54 50 52 Q64 54 70 58 Q82 70 82 90 L82 96 Q82 98 80 98 L20 98 Q18 98 18 96 Z" fill="#059669"/>
-      {/* Hijab head covering */}
-      <ellipse cx="50" cy="38" rx="24" ry="26" fill="#059669"/>
-      {/* Oval face opening (niqab style) */}
-      <ellipse cx="50" cy="42" rx="10" ry="13" fill="black"/>
-      {/* Eyes - visible through the face opening */}
-      <ellipse cx="44" cy="40" rx="3" ry="2" fill="white"/>
-      <ellipse cx="56" cy="40" rx="3" ry="2" fill="white"/>
-      <circle cx="44" cy="40" r="1.5" fill="black"/>
-      <circle cx="56" cy="40" r="1.5" fill="black"/>
+      {/* Black background */}
+      <circle cx="50" cy="50" r="46" fill="#1a1a2e"/>
+      {/* Hijab draping down */}
+      <path d="M20 92 C20 72 28 60 36 54 C42 50 50 48 50 48 C50 48 58 50 64 54 C72 60 80 72 80 92 L80 96 C80 98 78 98 76 98 L24 98 C22 98 20 98 20 96 Z" fill="#059669"/>
+      {/* Hijab head */}
+      <ellipse cx="50" cy="36" rx="22" ry="24" fill="#059669"/>
+      {/* Face opening - oval niqab style */}
+      <ellipse cx="50" cy="40" rx="9" ry="12" fill="#1a1a2e"/>
+      {/* Eyes */}
+      <ellipse cx="44" cy="38" rx="2.5" ry="1.8" fill="white"/>
+      <ellipse cx="56" cy="38" rx="2.5" ry="1.8" fill="white"/>
+      <circle cx="44" cy="38" r="1.2" fill="#1a1a2e"/>
+      <circle cx="56" cy="38" r="1.2" fill="#1a1a2e"/>
     </svg>
   );
 }
