@@ -8,19 +8,81 @@ export function generateStaticParams() {
 
 function MaleIcon() {
   return (
-    <svg viewBox="0 0 100 100" className="w-full h-full text-white/80">
-      <circle cx="50" cy="32" r="18" fill="currentColor"/>
-      <path d="M50 52 C30 52 18 65 18 80 L18 88 L38 88 L38 78 C38 72 44 68 50 68 C56 68 62 72 62 78 L62 88 L82 88 L82 80 C82 65 70 52 50 52Z" fill="currentColor"/>
+    <svg viewBox="0 0 120 140" className="w-full h-full">
+      {/* Face */}
+      <circle cx="60" cy="45" r="28" fill="#F5D0A9"/>
+      {/* Hair */}
+      <path d="M32 38 C32 18 88 18 88 38 C88 28 32 28 32 38Z" fill="#2D2D2D"/>
+      {/* Kufi/Cap */}
+      <rect x="35" y="18" width="50" height="16" rx="8" fill="#059669"/>
+      <rect x="38" y="30" width="44" height="5" rx="2" fill="#047857"/>
+      {/* Eyes */}
+      <ellipse cx="48" cy="44" rx="3" ry="3.5" fill="#2D2D2D"/>
+      <ellipse cx="72" cy="44" rx="3" ry="3.5" fill="#2D2D2D"/>
+      <circle cx="49" cy="43" r="1" fill="white"/>
+      <circle cx="73" cy="43" r="1" fill="white"/>
+      {/* Beard */}
+      <path d="M40 55 C40 55 42 72 60 72 C78 72 80 55 80 55" fill="#2D2D2D" opacity="0.8"/>
+      {/* Smile */}
+      <path d="M50 54 Q60 62 70 54" fill="none" stroke="#C47A5A" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Body/Shirt */}
+      <path d="M30 80 C30 72 90 72 90 80 L95 140 L25 140Z" fill="white"/>
+      {/* Collar */}
+      <path d="M45 78 L60 92 L75 78" fill="none" stroke="#ddd" strokeWidth="1.5"/>
+      {/* Tie */}
+      <polygon points="56,78 64,78 62,100 58,100" fill="#059669"/>
+      <polygon points="58,100 62,100 60,112" fill="#047857"/>
+      {/* Arms */}
+      <path d="M30 82 L18 120" stroke="white" strokeWidth="12" strokeLinecap="round"/>
+      <path d="M90 82 L102 120" stroke="white" strokeWidth="12" strokeLinecap="round"/>
+      {/* Hands */}
+      <circle cx="18" cy="122" r="7" fill="#F5D0A9"/>
+      <circle cx="102" cy="122" r="7" fill="#F5D0A9"/>
     </svg>
   );
 }
 
 function FemaleIcon() {
   return (
-    <svg viewBox="0 0 100 120" className="w-full h-full text-white/80">
-      <circle cx="50" cy="28" r="16" fill="currentColor"/>
-      <ellipse cx="50" cy="20" rx="20" ry="6" fill="currentColor" opacity="0.5"/>
-      <path d="M30 48 C30 48 25 60 25 85 C25 100 35 110 50 110 C65 110 75 100 75 85 C75 60 70 48 70 48Z" fill="currentColor"/>
+    <svg viewBox="0 0 120 140" className="w-full h-full">
+      {/* Hijab */}
+      <ellipse cx="60" cy="42" rx="34" ry="32" fill="#059669"/>
+      {/* Inner hijab layer */}
+      <ellipse cx="60" cy="42" rx="30" ry="28" fill="#047857"/>
+      {/* Face */}
+      <ellipse cx="60" cy="46" rx="22" ry="24" fill="#F5D0A9"/>
+      {/* Hijab drape */}
+      <path d="M26 38 C26 20 94 20 94 38 L94 50 C94 50 80 42 60 42 C40 42 26 50 26 50Z" fill="#059669"/>
+      {/* Hijab fold lines */}
+      <path d="M32 35 Q42 28 52 32" fill="none" stroke="#047857" strokeWidth="1" opacity="0.5"/>
+      <path d="M68 32 Q78 28 88 35" fill="none" stroke="#047857" strokeWidth="1" opacity="0.5"/>
+      {/* Eyes */}
+      <ellipse cx="50" cy="44" rx="3" ry="4" fill="#2D2D2D"/>
+      <ellipse cx="70" cy="44" rx="3" ry="4" fill="#2D2D2D"/>
+      <circle cx="51" cy="43" r="1.2" fill="white"/>
+      <circle cx="71" cy="43" r="1.2" fill="white"/>
+      {/* Eyelashes */}
+      <path d="M45 40 L47 42" stroke="#2D2D2D" strokeWidth="0.8"/>
+      <path d="M55 40 L53 42" stroke="#2D2D2D" strokeWidth="0.8"/>
+      <path d="M65 40 L67 42" stroke="#2D2D2D" strokeWidth="0.8"/>
+      <path d="M75 40 L73 42" stroke="#2D2D2D" strokeWidth="0.8"/>
+      {/* Nose */}
+      <path d="M58 48 Q60 52 62 48" fill="none" stroke="#D4A987" strokeWidth="1" strokeLinecap="round"/>
+      {/* Smile */}
+      <path d="M52 55 Q60 62 68 55" fill="none" stroke="#E88A8A" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Blush */}
+      <ellipse cx="42" cy="52" rx="5" ry="3" fill="#FFB5B5" opacity="0.4"/>
+      <ellipse cx="78" cy="52" rx="5" ry="3" fill="#FFB5B5" opacity="0.4"/>
+      {/* Dress/Abaya */}
+      <path d="M28 75 C28 68 92 68 92 75 L98 140 L22 140Z" fill="#059669"/>
+      {/* Dress details */}
+      <path d="M40 80 L60 95 L80 80" fill="none" stroke="#047857" strokeWidth="1.5"/>
+      {/* Sleeves */}
+      <path d="M28 80 L14 118" stroke="#059669" strokeWidth="14" strokeLinecap="round"/>
+      <path d="M92 80 L106 118" stroke="#059669" strokeWidth="14" strokeLinecap="round"/>
+      {/* Hands */}
+      <circle cx="14" cy="120" r="6" fill="#F5D0A9"/>
+      <circle cx="106" cy="120" r="6" fill="#F5D0A9"/>
     </svg>
   );
 }
@@ -45,16 +107,16 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-4 py-6">
         {/* Main Profile Card */}
-        <div className="rounded-2xl overflow-hidden shadow-lg" style={{ background: "linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%)" }}>
+        <div className="rounded-2xl overflow-hidden shadow-lg" style={{ background: "linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%)" }}>
           {/* Icon + Name + Biodata No */}
           <div className="text-center py-8 px-6">
-            <div className="w-28 h-28 mx-auto mb-4 rounded-full bg-white/15 border-4 border-white/25 flex items-center justify-center overflow-hidden">
+            <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white/15 border-4 border-white/25 flex items-center justify-center overflow-hidden">
               {isGroom ? <MaleIcon /> : <FemaleIcon />}
             </div>
 
             <h1 className="text-2xl font-bold text-white mb-2">{biodata.name}</h1>
 
-            <div className="text-lg text-purple-200 font-medium">
+            <div className="text-lg text-emerald-200 font-medium">
               বায়োডাটা নং : <span className="font-bold text-white">{biodata.biodataCode}</span>
             </div>
           </div>
@@ -64,35 +126,35 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
             <table className="w-full text-sm">
               <tbody>
                 <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-purple-200 font-medium w-2/5">বায়োডাটার ধরন</td>
+                  <td className="py-3.5 px-4 text-emerald-200 font-medium w-2/5">বায়োডাটার ধরন</td>
                   <td className="py-3.5 px-4 text-white font-semibold">{isGroom ? "পাত্রের বায়োডাটা" : "পাত্রীর বায়োডাটা"}</td>
                 </tr>
                 <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-purple-200 font-medium">বৈবাহিক অবস্থা</td>
+                  <td className="py-3.5 px-4 text-emerald-200 font-medium">বৈবাহিক অবস্থা</td>
                   <td className="py-3.5 px-4 text-white font-semibold">{biodata.maritalStatus}</td>
                 </tr>
                 <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-purple-200 font-medium">জন্মসন</td>
+                  <td className="py-3.5 px-4 text-emerald-200 font-medium">জন্মসন</td>
                   <td className="py-3.5 px-4 text-white font-semibold">{biodata.age} বছর</td>
                 </tr>
                 <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-purple-200 font-medium">উচ্চতা</td>
+                  <td className="py-3.5 px-4 text-emerald-200 font-medium">উচ্চতা</td>
                   <td className="py-3.5 px-4 text-white font-semibold">{heightToFt(biodata.height)}</td>
                 </tr>
                 <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-purple-200 font-medium">গায়ের রং</td>
+                  <td className="py-3.5 px-4 text-emerald-200 font-medium">গায়ের রং</td>
                   <td className="py-3.5 px-4 text-white font-semibold">{biodata.complexion}</td>
                 </tr>
                 <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-purple-200 font-medium">ওজন</td>
+                  <td className="py-3.5 px-4 text-emerald-200 font-medium">ওজন</td>
                   <td className="py-3.5 px-4 text-white font-semibold">{biodata.weight} কেজি</td>
                 </tr>
                 <tr className="border-b border-white/10">
-                  <td className="py-3.5 px-4 text-purple-200 font-medium">রক্তের গ্রুপ</td>
+                  <td className="py-3.5 px-4 text-emerald-200 font-medium">রক্তের গ্রুপ</td>
                   <td className="py-3.5 px-4 text-white font-semibold">{biodata.bloodGroup || "জানা নেই"}</td>
                 </tr>
                 <tr>
-                  <td className="py-3.5 px-4 text-purple-200 font-medium">জাতীয়তা</td>
+                  <td className="py-3.5 px-4 text-emerald-200 font-medium">জাতীয়তা</td>
                   <td className="py-3.5 px-4 text-white font-semibold">{biodata.nationality}</td>
                 </tr>
               </tbody>
