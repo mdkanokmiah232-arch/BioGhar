@@ -187,7 +187,7 @@ export default function DashboardPage() {
                     <Select name="prayerRegularity" label="নামাজ" required value={form.prayerRegularity} onChange={handleChange} options={["পাঁচ ওয়াক্ত", "চার ওয়াক্ত", "তিন ওয়াক্ত", "দুই ওয়াক্ত", "জামাতে এক ওয়াক্ত", "প্রয়োজনে কখনো কখনো"]} />
                     <Input name="hijabOrBeard" label="দাড়ি/লম্বা চুল / হিজাব" value={form.hijabOrBeard} onChange={handleChange} placeholder="বর্ণনা করুন" />
                     <Select name="quranRecitation" label="কুরআন তিলাওয়াত" required value={form.quranRecitation} onChange={handleChange} options={["পারগুণ আছে, খুব ভালো", "পারগুণ আছে", "আংশিক পারগুণ আছে", "নেই"]} />
-                    <Input name="religiousQualification" label="দ্বীনি শিক্ষাগত যোগ্যতা" value={form.religiousQualification} placeholder="যেমন: হাফেজ, মাওলানা" />
+                    <Input name="religiousQualification" label="দ্বীনি শিক্ষাগত যোগ্যতা" value={form.religiousQualification} onChange={handleChange} placeholder="যেমন: হাফেজ, মাওলানা" />
                   </>
                 )}
 
