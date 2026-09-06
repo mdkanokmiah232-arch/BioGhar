@@ -20,7 +20,7 @@ const steps = [
 ];
 
 const testimonials = [
-  { name: "মোঃ আহমেদ হাসান", location: "ঢাকা", text: "BioGHar-এর মাধ্যমে আমি আমার জীবনসঙ্গীকে খুঁজে পেয়েছি।", rating: 5 },
+  { name: "মোঃ আহমেদ হাসান", location: "ঢাকা", text: "BioGhar-এর মাধ্যমে আমি আমার জীবনসঙ্গীকে খুঁজে পেয়েছি।", rating: 5 },
   { name: "ফাতিমা আক্তার", location: "চট্টগ্রাম", text: "আমার মেয়ের জন্য এখানে ভালো প্রোফাইল পেয়েছি।", rating: 5 },
   { name: "মোঃ রাকিবুল হাসান", location: "সিলেট", text: "ইসলামিক মূল্যবোধের উপর ভিত্তি করে কাজ করায় BioGhar-কে পছন্দ করি।", rating: 5 },
 ];
@@ -30,18 +30,18 @@ export default function HomePage() {
   const [lookingFor, setLookingFor] = useState("");
   const [maritalStatus, setMaritalStatus] = useState("");
   const [district, setDistrict] = useState("");
-  const [ageFrom, setAgeFrom] = useState("");
-  const [ageTo, setAgeTo] = useState("");
 
   const handleSearch = () => {
     const params = new URLSearchParams();
     if (lookingFor) params.set("lookingFor", lookingFor);
     if (maritalStatus) params.set("maritalStatus", maritalStatus);
     if (district) params.set("district", district);
-    if (ageFrom) params.set("ageMin", ageFrom);
-    if (ageTo) params.set("ageMax", ageTo);
     const qs = params.toString();
     router.push(`/biodata${qs ? `?${qs}` : ""}`);
+  };
+
+  const handleAllFilters = () => {
+    router.push("/biodata");
   };
 
   return (
@@ -50,6 +50,7 @@ export default function HomePage() {
       <section className="bg-emerald-gradient text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
+            {/* Islamic Quote */}
             <div className="mb-8">
               <p className="text-lg md:text-xl text-emerald-100 font-medium leading-relaxed">
                 &quot;وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا&quot;
@@ -63,12 +64,12 @@ export default function HomePage() {
             <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">আপনার জীবনসঙ্গী খুঁজুন</h1>
             <p className="text-lg md:text-xl text-emerald-100 mb-8">ইসলামিক মূল্যবোধের উপর ভিত্তি করে বিশ্বস্ত বায়োডাটা প্ল্যাটফর্ম</p>
 
-            {/* Search Box - 5 Filters */}
-            <div className="bg-white rounded-xl p-5 md:p-6 shadow-2xl max-w-2xl mx-auto">
-              <div className="space-y-3">
+            {/* Search Box - 3 Quick Filters + 2 Buttons */}
+            <div className="bg-white rounded-2xl p-5 md:p-6 shadow-2xl max-w-2xl mx-auto">
+              <div className="space-y-4">
                 {/* 1. আমি খুঁজছি */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">আমি খুঁজছি</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">আমি খুঁজছি</label>
                   <select value={lookingFor} onChange={(e) => setLookingFor(e.target.value)} className="search-select w-full">
                     <option value="">সকল</option>
                     <option value="groom">পাত্র</option>
@@ -78,7 +79,7 @@ export default function HomePage() {
 
                 {/* 2. বৈবাহিক অবস্থা */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">বৈবাহিক অবস্থা</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">বৈবাহিক অবস্থা</label>
                   <select value={maritalStatus} onChange={(e) => setMaritalStatus(e.target.value)} className="search-select w-full">
                     <option value="">সকল</option>
                     <option value="অবিবাহিত">অবিবাহিত</option>
@@ -91,7 +92,7 @@ export default function HomePage() {
 
                 {/* 3. স্থায়ী ঠিকানা */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">স্থায়ী ঠিকানা</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">স্থায়ী ঠিকানা</label>
                   <select value={district} onChange={(e) => setDistrict(e.target.value)} className="search-select w-full">
                     <option value="">ঠিকানা নির্বাচন করুন</option>
                     {districts.map((d) => (
@@ -99,33 +100,24 @@ export default function HomePage() {
                     ))}
                   </select>
                 </div>
-
-                {/* 4 & 5. বয়স */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">বয়স (থেকে)</label>
-                    <select value={ageFrom} onChange={(e) => setAgeFrom(e.target.value)} className="search-select w-full">
-                      <option value="">নির্বাচন করুন</option>
-                      {Array.from({ length: 25 }, (_, i) => (
-                        <option key={i + 18} value={i + 18}>{i + 18} বছর</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">বয়স (পর্যন্ত)</label>
-                    <select value={ageTo} onChange={(e) => setAgeTo(e.target.value)} className="search-select w-full">
-                      <option value="">নির্বাচন করুন</option>
-                      {Array.from({ length: 25 }, (_, i) => (
-                        <option key={i + 20} value={i + 20}>{i + 20} বছর</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
               </div>
 
-              <button onClick={handleSearch} className="btn-primary w-full mt-5 text-lg py-3">
-                🔍 বায়োডাটা খুঁজুন
-              </button>
+              {/* Two Buttons */}
+              <div className="flex gap-3 mt-6">
+                <button
+                  onClick={handleAllFilters}
+                  className="flex-1 py-3 rounded-full border-2 border-emerald-600 text-emerald-700 font-semibold text-sm hover:bg-emerald-50 transition-all"
+                >
+                  সকল ফিল্টার
+                </button>
+                <button
+                  onClick={handleSearch}
+                  className="flex-1 py-3 rounded-full text-white font-bold text-sm shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02]"
+                  style={{ background: "linear-gradient(135deg, #059669, #047857)" }}
+                >
+                  🔍 বায়োডাটা খুঁজুন
+                </button>
+              </div>
             </div>
           </div>
         </div>
