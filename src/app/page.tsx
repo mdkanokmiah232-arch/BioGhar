@@ -40,17 +40,12 @@ export default function HomePage() {
     router.push(`/biodata${qs ? `?${qs}` : ""}`);
   };
 
-  const handleAllFilters = () => {
-    router.push("/biodata");
-  };
-
   return (
     <div className="bg-pattern">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="bg-emerald-gradient text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
-            {/* Islamic Quote */}
             <div className="mb-8">
               <p className="text-lg md:text-xl text-emerald-100 font-medium leading-relaxed">
                 &quot;وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا&quot;
@@ -64,10 +59,9 @@ export default function HomePage() {
             <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">আপনার জীবনসঙ্গী খুঁজুন</h1>
             <p className="text-lg md:text-xl text-emerald-100 mb-8">ইসলামিক মূল্যবোধের উপর ভিত্তি করে বিশ্বস্ত বায়োডাটা প্ল্যাটফর্ম</p>
 
-            {/* Search Box - 3 Quick Filters + 2 Buttons */}
+            {/* Search Box */}
             <div className="bg-white rounded-2xl p-5 md:p-6 shadow-2xl max-w-2xl mx-auto">
               <div className="space-y-4">
-                {/* 1. আমি খুঁজছি */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">আমি খুঁজছি</label>
                   <select value={lookingFor} onChange={(e) => setLookingFor(e.target.value)} className="search-select w-full">
@@ -76,8 +70,6 @@ export default function HomePage() {
                     <option value="bride">পাত্রী</option>
                   </select>
                 </div>
-
-                {/* 2. বৈবাহিক অবস্থা */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">বৈবাহিক অবস্থা</label>
                   <select value={maritalStatus} onChange={(e) => setMaritalStatus(e.target.value)} className="search-select w-full">
@@ -89,32 +81,20 @@ export default function HomePage() {
                     <option value="বিপত্নীক">বিপত্নীক</option>
                   </select>
                 </div>
-
-                {/* 3. স্থায়ী ঠিকানা */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">স্থায়ী ঠিকানা</label>
                   <select value={district} onChange={(e) => setDistrict(e.target.value)} className="search-select w-full">
                     <option value="">ঠিকানা নির্বাচন করুন</option>
-                    {districts.map((d) => (
-                      <option key={d} value={d}>{d}</option>
-                    ))}
+                    {districts.map((d) => <option key={d} value={d}>{d}</option>)}
                   </select>
                 </div>
               </div>
 
-              {/* Two Buttons */}
               <div className="flex gap-3 mt-6">
-                <button
-                  onClick={handleAllFilters}
-                  className="flex-1 py-3 rounded-full border-2 border-emerald-600 text-emerald-700 font-semibold text-sm hover:bg-emerald-50 transition-all"
-                >
+                <Link href="/filters" className="flex-1 py-3 rounded-full border-2 border-emerald-600 text-emerald-700 font-semibold text-sm text-center hover:bg-emerald-50 transition-all">
                   সকল ফিল্টার
-                </button>
-                <button
-                  onClick={handleSearch}
-                  className="flex-1 py-3 rounded-full text-white font-bold text-sm shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02]"
-                  style={{ background: "linear-gradient(135deg, #059669, #047857)" }}
-                >
+                </Link>
+                <button onClick={handleSearch} className="flex-1 py-3 rounded-full text-white font-bold text-sm shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02]" style={{ background: "linear-gradient(135deg, #059669, #047857)" }}>
                   🔍 বায়োডাটা খুঁজুন
                 </button>
               </div>
@@ -201,9 +181,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: "🔒", title: "নিরাপদ ও গোপনীয়", desc: "আপনার তথ্য সম্পূর্ণ নিরাপদ। শুধুমাত্র যাচাইকৃত ব্যবহারকারীরা আপনার প্রোফাইল দেখতে পাবেন।" },
-              { icon: "✅", title: "যাচাইকৃত বায়োডাটা", desc: "সকল বায়োডাটা যাচাই করা হয়। আমরা প্রতিটি প্রোফাইলের তথ্য যাচাই করি।" },
-              { icon: "💰", title: "বিনামূল্যে সেবা", desc: "বায়োডাটা তৈরি এবং ব্রাউজ করা সম্পূর্ণ বিনামূল্যে।" },
+              { icon: "🔒", title: "নিরাপদ ও গোপনীয়", desc: "আপনার তথ্য সম্পূর্ণ নিরাপদ।" },
+              { icon: "✅", title: "যাচাইকৃত বায়োডাটা", desc: "সকল বায়োডাটা যাচাই করা হয়।" },
+              { icon: "💰", title: "বিনামূল্যে সেবা", desc: "বায়োডাটা তৈরি ও ব্রাউজ সম্পূর্ণ বিনামূল্যে।" },
             ].map((f, i) => (
               <div key={i} className="card-hover bg-white rounded-xl p-6 shadow-md border border-emerald-100">
                 <div className="text-4xl mb-4">{f.icon}</div>
