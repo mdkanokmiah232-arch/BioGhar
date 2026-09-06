@@ -1009,3 +1009,4 @@ export const biodatas: Biodata[] = [
     bio: "Lecturer, BUET.",
   },
 ];
+export const districts = ["Dhaka","Chittagong","Sylhet","Rajshahi","Khulna","Barishal","Rangpur","Mymensingh","Comilla","Bogra","Cox's Bazar","Gazipur"];
