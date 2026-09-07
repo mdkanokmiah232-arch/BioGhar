@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { biodatas } from "@/data/biodatas";
+import CopyBiodataLink from "@/components/CopyBiodataLink";
 
 export function generateStaticParams() {
   return biodatas.map((b) => ({ id: b.id }));
@@ -102,7 +103,7 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
                   <button className="flex-1 py-2.5 rounded-xl border-2 border-white/30 text-white font-bold text-xs hover:bg-white/10 transition">⭐ শর্টলিস্ট</button>
                   <button className="flex-1 py-2.5 rounded-xl border-2 border-white/30 text-white font-bold text-xs hover:bg-white/10 transition">✖ ইগনোর</button>
                 </div>
-                <button className="w-full py-2.5 rounded-xl bg-white/15 text-white font-bold text-xs hover:bg-white/25 transition">📋 Copy Biodata Link</button>
+                <CopyBiodataLink biodataCode={biodata.biodataCode} />
               </div>
             </div>
           </div>
