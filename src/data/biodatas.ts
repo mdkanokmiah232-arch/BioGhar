@@ -336,8 +336,7 @@ export const biodatas: Biodata[] = [
     photoVisibility: "hidden",
     bio: "ইসলামিক মূল্যবোধে পরিপূর্ণ একজন মেয়ে।",
   },
-  ],
-};
+];
 
 export const districts = [
   'Dhaka', 'Chittagong', 'Sylhet', 'Rajshahi', 'Khulna',
