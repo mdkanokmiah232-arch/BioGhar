@@ -338,7 +338,7 @@ export const biodatas: Biodata[] = [
   },
 ];
 
-export const districts = ['Dhaka','Chittagong','Sylhet','Rajshahi','Khulna','Barishal','Rangpur','Mymensingh','Comilla','Bogra','Cox\'s Bazar','Gazipur'  {
+];
     id: "31521",
     biodataCode: "ODF-31521",
     type: "BRIDE",
