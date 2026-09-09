@@ -26,8 +26,9 @@ export interface Biodata {
   sscGroup?: string;
   sscResult?: string;
   diplomaSubject?: string;
+  hscPassYear?: string;
+  hscResult?: string;
   institution: string;
-  diplomaPassYear?: string;
   profession: string;
   monthlyIncome: number;
   economicStatus: string;
@@ -47,7 +48,8 @@ export interface Biodata {
   familyHousing: string;
   familyLand: string;
   personalClothing: string;
-  personalNikab: string;
+  personalNikab?: string;
+  personalBeard?: string;
   personalNamazDetail: string;
   personalNamazWeekly: string;
   personalMahram: string;
@@ -64,6 +66,7 @@ export interface Biodata {
   marriageGuardianConsent: string;
   marriageJobAfter: string;
   marriageStudyAfter: string;
+  marriagePardaAfter?: string;
   marriageWhy: string;
   partnerPreferences: {
     ageRange: string;
@@ -371,7 +374,6 @@ export const biodatas: Biodata[] = [
     sscResult: "A+ (All Subjects)",
     diplomaSubject: "বিএসসি নাসিং",
     institution: "ইসলামী ব্যাংক মেডিকেল কলেজ হাসপাতাল",
-    diplomaPassYear: "২০২৪",
     fatherName: "সহকারী মাওলানা মৌপাড়া দাখিল মাদরাসা",
     fatherOccupation: "সহকারী মাওলানা মৌপাড়া দাখিল মাদরাসা",
     fatherAlive: true,
@@ -431,6 +433,94 @@ export const biodatas: Biodata[] = [
     photoUrl: "",
     photoVisibility: "hidden",
     bio: "ইসলামিক মূল্যবোধে পরিপূর্ণ একজন মেয়ে।",
+  },
+  {
+    id: "34309",
+    biodataCode: "ODF-34309",
+    type: "GROOM",
+    name: "",
+    age: 29,
+    height: 170,
+    weight: 72,
+    complexion: "উজ্জ্বল শ্যামলা",
+    maritalStatus: "অবিবাহিত",
+    bloodGroup: "B+",
+    nationality: "বাংলাদেশী",
+    birthDate: "মার্চ, ১৯৯৬",
+    presentAddress: { district: "ঢাকা", division: "কেরানীগঞ্জ", area: "ঢাকা, কেরানীগঞ্জ" },
+    permanentAddress: { district: "ঢাকা", division: "সাভার", area: "সাভার ক্যান্টনমেন্ট, সাভার, ঢাকা" },
+    grownUpIn: "টাংলিয়া, গাজীপুর, নারায়ণগঞ্জ, ঢাকা",
+    religion: "ইসলাম",
+    madhab: "হানাফি",
+    prayerRegularity: "নিয়মিত",
+    hijabOrBeard: "পাঞ্জাবি-পায়জামা, প্যান্ট, টি-শার্ট",
+    quranRecitation: "জ্বি",
+    religiousQualification: "বিবিএ ৪র্থ বর্ষ",
+    educationMedium: "জেনারেল",
+    educationLevel: "বিবিএ ৪র্থ বর্ষ",
+    hscPassYear: "২০১৬",
+    hscResult: "৩.১৭",
+    institution: "প্রাইভেট ইউনিভার্সিটি",
+    profession: "ফ্রিল্যান্সার",
+    professionDetail: "ওয়েব ডেভেলপার",
+    monthlyIncome: 25000,
+    economicStatus: "মধ্যবিত্ত",
+    fatherName: "বাংলাদেশ পুলিশ",
+    fatherOccupation: "বাংলাদেশ পুলিশ",
+    fatherAlive: true,
+    motherName: "গৃহিণী",
+    motherOccupation: "গৃহিণী",
+    motherAlive: false,
+    brothers: 1,
+    brothersInfo: "আমার বড় ভাই এইচএসসি পর্যন্ত পড়াশোনা করছে। সে এখন একটি কোম্পানিতে চাকরি করে। সে বিবাহিত এবং তার একটি ছেলে আছে।",
+    sisters: 1,
+    sistersInfo: "বোন বিবাহিত এবং সে গৃহিণী।",
+    uncleProfessions: "মামা: ১ জন, ইতালি থাকেন। চাচা: ৪ জন, ২ জন বিদেশে।",
+    familyReligiousEnvironment: "কলে জানানো হবে।",
+    familyFinancialCondition: "মধ্যবিত্ত",
+    familyHousing: "৬ তলা ফাউন্ডেশন দিয়ে বাড়ির কাজ চলমান।",
+    familyLand: "সাভার ক্যান্টনমেন্টে অল্প কিছু জমি আছে, ৬০ লাখ টাকা দিয়ে কেনা হয়েছে।",
+    personalClothing: "পাঞ্জাবি-পায়জামা, প্যান্ট, টি-শার্ট",
+    personalBeard: "জ্বি, সুন্নতি দাড়ি আছে।",
+    personalNamazDetail: "জ্বি, প্রতিদিন পাঁচ ওয়াক্ত নামাজ পড়ি এবং নামাজ ফরজ হওয়ার পর থেকেই।",
+    personalNamazWeekly: "সাধারণত কাযা যায় না।",
+    personalMahram: "মাহরাম/নন-মাহরাম মেনে চলার চেষ্টা করি।",
+    personalQuranRecite: "জ্বি",
+    personalFiqh: "হানাফি",
+    personalEntertainment: "না",
+    personalHealth: "না",
+    personalDawahWork: "তাবলীগে যাওয়া হয় না, তবে পছন্দ করি।",
+    personalMazarBelief: "মাজার পূজা, এটা নাজায়েজ। আমি পছন্দ করি না।",
+    personalBooksRead: "১. আর-রাহীকুল মাখতূম, ২. ফাযায়েলে আমল, ৩. বেহেশতী জেওর",
+    personalFavScholars: "১. আল্লামা মামুনুল হক, ২. আল্লামা শায়খ আহমাদুল্লাহ, ৩. আল্লামা মিজানুর রহমান আজহারী",
+    personalHobbies: "শখ: নতুন নতুন জিনিস শেখা। পছন্দ: সাদাসিধা জীবনযাপন। স্বপ্ন: দ্বীনের উপর অটল থেকে একটি শান্তিপূর্ণ, সুন্দর ও আদর্শ পরিবার গড়ে তোলা।",
+    marriageGuardianConsent: "হ্যাঁ, সকলেই রাজি।",
+    marriagePardaAfter: "অবশ্যই পারবো।",
+    marriageStudyAfter: "যদি পড়াশোনা করতে চাই, এবং সুযোগ-সুবিধা থাকে, পরামর্শ অনুযায়ী অবশ্যই করতে দিবো।",
+    marriageJobAfter: "চাকরির বিষয়ে পরামর্শ অনুযায়ী সিদ্ধান্ত নিব।",
+    marriageWhy: "আল্লাহর সন্তুষ্টি অর্জন, সুন্নাহ অনুসরণ এবং একটি দ্বীনদার, শান্তিপূর্ণ ও সুন্দর পরিবার গঠনের উদ্দেশ্যে বিয়ে করতে চাই।",
+    partnerPreferences: {
+      ageRange: "১৮-২৮",
+      height: "৫ ফুট ২ ইঞ্চি বা তার বেশি",
+      complexion: "উজ্জ্বল শ্যামলা, ফর্সা, উজ্জ্বল ফর্সা",
+      education: "জেনারেল হলে এসএসসি পাস, কওমি হলে আলোচনা সাপেক্ষে।",
+      location: "ঝিনাইদহ, মাগুরা, মেহেরপুর, যশোর, কুষ্টিয়া",
+      maritalStatus: "অবিবাহিত",
+      profession: "কোনো পেশার প্রয়োজন নাই।",
+      economicStatus: "মধ্যবিত্ত",
+      qualities: "দ্বীনদার, পরহেজগার, নামাজি, পর্দাশীল, উত্তম চরিত্রের মেয়ে প্রত্যাশা করি। স্বভাব শান্ত, নম্র, বিনয়ী ও ভালো মনের হওয়া কাম্য।",
+    },
+    commitment1: "হ্যাঁ",
+    commitment2: "হ্যাঁ",
+    commitment3: "হ্যাঁ",
+    guardianName: "",
+    guardianRelation: "",
+    guardianPhone: "",
+    phone: "",
+    email: "",
+    photoUrl: "",
+    photoVisibility: "hidden",
+    bio: "দ্বীনদার ও সাদাসিধে জীবনযাপনকারী একজন মুসলিম।",
   },
 ];
 
