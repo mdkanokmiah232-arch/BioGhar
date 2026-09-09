@@ -10,26 +10,13 @@ export function generateStaticParams() {
 
 function MaleIcon() {
   return (
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Green circle border */}
-      <circle cx="50" cy="50" r="48" fill="none" stroke="#059669" strokeWidth="4"/>
-      {/* White background inside circle */}
-      <circle cx="50" cy="50" r="46" fill="white"/>
-      {/* Shoulders and upper body */}
-      <ellipse cx="50" cy="82" rx="22" ry="16" fill="#059669"/>
-      {/* Neck */}
-      <rect x="44" y="60" width="12" height="12" rx="2" fill="#059669"/>
-      {/* Head */}
-      <ellipse cx="50" cy="46" rx="15" ry="17" fill="#059669"/>
-      {/* Islamic topi/cap - flat top rounded edges */}
-      <rect x="36" y="28" width="28" height="10" rx="3" fill="#059669"/>
-      <rect x="34" y="32" width="32" height="5" rx="2" fill="#059669"/>
-      {/* Beard - draping from chin */}
-      <path d="M37 52 Q38 64 50 66 Q62 64 63 52" fill="#059669"/>
-      {/* Ears */}
-      <ellipse cx="35" cy="46" rx="3" ry="5" fill="#059669"/>
-      <ellipse cx="65" cy="46" rx="3" ry="5" fill="#059669"/>
-    </svg>
+    <Image
+      src="/male-icon.webp"
+      alt="Male"
+      width={112}
+      height={112}
+      className="w-full h-full object-cover"
+    />
   );
 }
 
