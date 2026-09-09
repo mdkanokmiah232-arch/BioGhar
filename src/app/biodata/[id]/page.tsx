@@ -125,7 +125,8 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
             {/* ব্যক্তিগত তথ্য */}
             <Section title="ব্যক্তিগত তথ্য" items={[
               ["পোশাক", biodata.personalClothing],
-              ["নিকাব/পর্দা", biodata.personalNikab],
+              ...(biodata.personalNikab && biodata.personalNikab !== "-" ? ([["নিকাব/পর্দা", biodata.personalNikab]] as [string, string][]) : []),
+              ...(biodata.personalBeard ? ([["দাড়ি", biodata.personalBeard]] as [string, string][]) : []),
               ["নামাজের বিবরণ", biodata.personalNamazDetail],
               ["সপ্তাহে নামাজ", biodata.personalNamazWeekly],
               ["মাহরাম/নন-মাহরাম", biodata.personalMahram],

@@ -48,7 +48,7 @@ export interface Biodata {
   familyHousing: string;
   familyLand: string;
   personalClothing: string;
-  personalNikab?: string;
+  personalNikab: string;
   personalBeard?: string;
   personalNamazDetail: string;
   personalNamazWeekly: string;
@@ -481,6 +481,7 @@ export const biodatas: Biodata[] = [
     familyHousing: "৬ তলা ফাউন্ডেশন দিয়ে বাড়ির কাজ চলমান।",
     familyLand: "সাভার ক্যান্টনমেন্টে অল্প কিছু জমি আছে, ৬০ লাখ টাকা দিয়ে কেনা হয়েছে।",
     personalClothing: "পাঞ্জাবি-পায়জামা, প্যান্ট, টি-শার্ট",
+    personalNikab: "-",
     personalBeard: "জ্বি, সুন্নতি দাড়ি আছে।",
     personalNamazDetail: "জ্বি, প্রতিদিন পাঁচ ওয়াক্ত নামাজ পড়ি এবং নামাজ ফরজ হওয়ার পর থেকেই।",
     personalNamazWeekly: "সাধারণত কাযা যায় না।",
