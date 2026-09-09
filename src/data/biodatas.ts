@@ -10,6 +10,7 @@ export interface Biodata {
   maritalStatus: string;
   bloodGroup: string;
   nationality: string;
+  birthDate?: string;
   presentAddress: { district: string; division: string; area: string };
   permanentAddress: { district: string; division: string; area: string };
   grownUpIn: string;
@@ -21,7 +22,12 @@ export interface Biodata {
   religiousQualification: string;
   educationMedium: string;
   educationLevel: string;
+  sscPassYear?: string;
+  sscGroup?: string;
+  sscResult?: string;
+  diplomaSubject?: string;
   institution: string;
+  diplomaPassYear?: string;
   profession: string;
   monthlyIncome: number;
   economicStatus: string;
@@ -338,7 +344,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "31521",
-    biodataCode: "31521",
+    biodataCode: "ODF-31521",
     type: "BRIDE",
     name: "",
     age: 27,
@@ -348,6 +354,7 @@ export const biodatas: Biodata[] = [
     maritalStatus: "অবিবাহিত",
     bloodGroup: "O+",
     nationality: "বাংলাদেশী",
+    birthDate: "January, 1999",
     presentAddress: { district: "রাজশাহী", division: "রাজশাহী", area: "নওহাটা বড়গাছী, পবা, রাজশাহী" },
     permanentAddress: { district: "রাজশাহী", division: "রাজশাহী", area: "নওহাটা বড়গাছী, পবা, রাজশাহী" },
     grownUpIn: "গ্রামে",
@@ -359,10 +366,12 @@ export const biodatas: Biodata[] = [
     religiousQualification: "দাখিল মাদরাসা থেকে পাস এবং মাদরাসা থেকে আলিম পাস। পরবর্তীতে বিএসসি নাসিং",
     educationMedium: "আলিয়া",
     educationLevel: "বিএসসি নাসিং",
+    sscPassYear: "২০১৮",
+    sscGroup: "বিজ্ঞান বিভাগ",
+    sscResult: "A+ (All Subjects)",
+    diplomaSubject: "বিএসসি নাসিং",
     institution: "ইসলামী ব্যাংক মেডিকেল কলেজ হাসপাতাল",
-    profession: "বেসরকারী চাকুরী",
-    monthlyIncome: 25000,
-    economicStatus: "মধ্যবিত্ত",
+    diplomaPassYear: "২০২৪",
     fatherName: "সহকারী মাওলানা মৌপাড়া দাখিল মাদরাসা",
     fatherOccupation: "সহকারী মাওলানা মৌপাড়া দাখিল মাদরাসা",
     fatherAlive: true,
@@ -380,7 +389,7 @@ export const biodatas: Biodata[] = [
     familyLand: "পারিবারিক ভাবে ২ বিঘা জমী আছে। নিজস্ব বাসা আছে ৪ রুম এর পাকা বাসা।",
     personalClothing: "বোরকা হিজাব ও নিকাব পরিধান করি",
     personalNikab: "৪ বছর যাবত",
-    personalNamazDetail: "ছোটবেলা থেকে ৫ ওয়াক্ত নামাজ পড়ি। ২০১৫ সাল থেকে থেকে নিয়মিত ৫ ওয়াক্ত নামাজ আদায় করি",
+    personalNamazDetail: "ছোটবেলা থেকে ৫ ওয়াক্ত নামাজ পড়ি। ২০১৫ সাল থেকে নিয়মিত ৫ ওয়াক্ত নামাজ আদায় করি",
     personalNamazWeekly: "২ ওয়াক্ত",
     personalMahram: "জ্বি",
     personalQuranRecite: "জ্বি",
@@ -392,7 +401,10 @@ export const biodatas: Biodata[] = [
     personalBooksRead: "কুরআন এর শিক্ষা। দিনের হাকিকত,, তাওহীদ",
     personalFavScholars: "মাওলানা দেলোয়ার হোসেন সাইদী। মাওলানা আজহারী, আবু তুহা",
     personalHobbies: "বই পড়তে ভালোবাসি। ঘুরতে ভালোবাসি, লেখালেখি করি। সহজ সাধারন জীবন যাপন করী",
+    profession: "বেসরকারী চাকুরী",
     professionDetail: "সিনিয়র স্টাফ নার্স ইসলামী ব্যাংক মেডিকেল কলেজ হাসপাতাল। কাকরাইল ঢাকা।",
+    monthlyIncome: 25000,
+    economicStatus: "মধ্যবিত্ত",
     marriageGuardianConsent: "হ্যা রাজি",
     marriageJobAfter: "হ্যা",
     marriageStudyAfter: "না",
