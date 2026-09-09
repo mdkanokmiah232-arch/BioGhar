@@ -152,8 +152,9 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
             {/* বিবাহ সম্পর্কিত */}
             <Section title="বিবাহ সম্পর্কিত তথ্য" items={[
               ["অভিভাবক রাজি?", biodata.marriageGuardianConsent],
-              ["বিয়ের পর চাকরি?", biodata.marriageJobAfter],
+              ...(biodata.marriagePardaAfter ? [["বিয়ের পর পর্দা?", biodata.marriagePardaAfter]] as [string, string][] : []),
               ["বিয়ের পর পড়াশোনা?", biodata.marriageStudyAfter],
+              ["বিয়ের পর চাকরি?", biodata.marriageJobAfter],
               ["কেন বিয়ে করছেন?", biodata.marriageWhy],
             ]} />
 
