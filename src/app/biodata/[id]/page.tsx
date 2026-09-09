@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { biodatas } from "@/data/biodatas";
 import CopyBiodataLink from "@/components/CopyBiodataLink";
 
@@ -34,23 +35,13 @@ function MaleIcon() {
 
 function FemaleIcon() {
   return (
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Green circle border */}
-      <circle cx="50" cy="50" r="48" fill="none" stroke="#059669" strokeWidth="4"/>
-      {/* Black background */}
-      <circle cx="50" cy="50" r="46" fill="#1a1a2e"/>
-      {/* Hijab draping down */}
-      <path d="M20 92 C20 72 28 60 36 54 C42 50 50 48 50 48 C50 48 58 50 64 54 C72 60 80 72 80 92 L80 96 C80 98 78 98 76 98 L24 98 C22 98 20 98 20 96 Z" fill="#059669"/>
-      {/* Hijab head */}
-      <ellipse cx="50" cy="36" rx="22" ry="24" fill="#059669"/>
-      {/* Face opening - oval niqab style */}
-      <ellipse cx="50" cy="40" rx="9" ry="12" fill="#1a1a2e"/>
-      {/* Eyes */}
-      <ellipse cx="44" cy="38" rx="2.5" ry="1.8" fill="white"/>
-      <ellipse cx="56" cy="38" rx="2.5" ry="1.8" fill="white"/>
-      <circle cx="44" cy="38" r="1.2" fill="#1a1a2e"/>
-      <circle cx="56" cy="38" r="1.2" fill="#1a1a2e"/>
-    </svg>
+    <Image
+      src="/female-icon.webp"
+      alt="Female"
+      width={112}
+      height={112}
+      className="w-full h-full object-cover"
+    />
   );
 }
 
