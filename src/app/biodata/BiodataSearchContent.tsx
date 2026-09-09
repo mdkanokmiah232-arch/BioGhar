@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { biodatas, districts } from "@/data/biodatas";
 
 function CollapsibleSection({ title, defaultOpen = false, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
@@ -37,17 +38,13 @@ function MaleMini() {
 
 function FemaleMini() {
   return (
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      <circle cx="50" cy="50" r="48" fill="none" stroke="#059669" strokeWidth="4"/>
-      <circle cx="50" cy="50" r="46" fill="#1a1a2e"/>
-      <path d="M20 92 C20 72 28 60 36 54 C42 50 50 48 50 48 C50 48 58 50 64 54 C72 60 80 72 80 92 L80 96 C80 98 78 98 76 98 L24 98 C22 98 20 98 20 96 Z" fill="#059669"/>
-      <ellipse cx="50" cy="36" rx="22" ry="24" fill="#059669"/>
-      <ellipse cx="50" cy="40" rx="9" ry="12" fill="#1a1a2e"/>
-      <ellipse cx="44" cy="38" rx="2.5" ry="1.8" fill="white"/>
-      <ellipse cx="56" cy="38" rx="2.5" ry="1.8" fill="white"/>
-      <circle cx="44" cy="38" r="1.2" fill="#1a1a2e"/>
-      <circle cx="56" cy="38" r="1.2" fill="#1a1a2e"/>
-    </svg>
+    <Image
+      src="/female-icon.webp"
+      alt="Female"
+      width={48}
+      height={48}
+      className="w-full h-full object-cover rounded-full"
+    />
   );
 }
 
