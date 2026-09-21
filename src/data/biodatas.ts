@@ -349,7 +349,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "31521",
-    biodataCode: "ODF-31521",
+    biodataCode: "31521",
     type: "BRIDE",
     name: "",
     age: 27,
@@ -438,7 +438,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "34309",
-    biodataCode: "ODF-34309",
+    biodataCode: "34309",
     type: "GROOM",
     name: "",
     age: 29,
@@ -527,7 +527,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "29074",
-    biodataCode: "ODF-29074",
+    biodataCode: "29074",
     type: "BRIDE",
     name: "",
     age: 26,
@@ -616,7 +616,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "25063",
-    biodataCode: "ODF-25063",
+    biodataCode: "25063",
     type: "BRIDE",
     name: "",
     age: 24,
@@ -704,7 +704,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "21120",
-    biodataCode: "ODF-21120",
+    biodataCode: "21120",
     type: "BRIDE",
     name: "",
     age: 24,
@@ -793,7 +793,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "33865",
-    biodataCode: "ODF-33865",
+    biodataCode: "33865",
     type: "BRIDE",
     name: "",
     age: 26,
@@ -883,7 +883,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "22094",
-    biodataCode: "ODF-22094",
+    biodataCode: "22094",
     type: "BRIDE",
     name: "",
     age: 21,
@@ -971,7 +971,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "27209",
-    biodataCode: "ODF-27209",
+    biodataCode: "27209",
     type: "BRIDE",
     name: "",
     age: 23,
@@ -1062,7 +1062,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "30008",
-    biodataCode: "ODF-30008",
+    biodataCode: "30008",
     type: "BRIDE",
     name: "",
     age: 20,
@@ -1152,7 +1152,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "32967",
-    biodataCode: "ODF-32967",
+    biodataCode: "32967",
     type: "BRIDE",
     name: "",
     age: 30,
@@ -1245,7 +1245,7 @@ export const biodatas: Biodata[] = [
 
   {
     id: "33444",
-    biodataCode: "ODF-33444",
+    biodataCode: "33444",
     type: "BRIDE",
     name: "",
     age: 20,
@@ -1337,7 +1337,7 @@ export const biodatas: Biodata[] = [
 
   {
     id: "33578",
-    biodataCode: "ODF-33578",
+    biodataCode: "33578",
     type: "BRIDE",
     name: "",
     age: 21,
@@ -1424,7 +1424,7 @@ export const biodatas: Biodata[] = [
 
   {
     id: "16316",
-    biodataCode: "ODF-16316",
+    biodataCode: "16316",
     type: "BRIDE",
     name: "",
     age: 21,
@@ -1511,7 +1511,7 @@ export const biodatas: Biodata[] = [
 
   {
     id: "20803",
-    biodataCode: "ODF-20803",
+    biodataCode: "20803",
     type: "BRIDE",
     name: "",
     age: 29,
@@ -1604,7 +1604,7 @@ export const biodatas: Biodata[] = [
 ,
   {
     id: "29162",
-    biodataCode: "ODF-29162",
+    biodataCode: "29162",
     type: "BRIDE",
     name: "",
     age: 19,
@@ -1690,7 +1690,7 @@ export const biodatas: Biodata[] = [
   },
   {
     id: "33346",
-    biodataCode: "ODF-33346",
+    biodataCode: "33346",
     type: "BRIDE",
     name: "",
     age: 19,
