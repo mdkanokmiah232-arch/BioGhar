@@ -29,23 +29,69 @@ export default function PageTracker() {
       
       if (!element || !window.fbq) return;
 
-      const text = element.textContent?.trim().substring(0, 50) || '';
+      const text = element.textContent?.trim() || '';
       const href = (element as HTMLAnchorElement).href || '';
       const id = element.id || '';
 
-      // Determine event type
-      if (text.includes('রেজিস্টার') || text.includes('Register')) {
-        window.fbq('track', 'Lead', { button_text: text, button_id: id });
-      } else if (text.includes('লগইন') || text.includes('Login')) {
-        window.fbq('track', 'Lead', { button_text: text, button_id: id });
-      } else if (text.includes('শর্টলিস্ট') || text.includes('Shortlist')) {
-        window.fbq('track', 'ViewContent', { button_text: text, content_category: 'biodata_action' });
-      } else if (text.includes('খুঁজুন') || text.includes('Search') || text.includes('🔍')) {
-        window.fbq('track', 'Search', { button_text: text, button_id: id });
-      } else if (href.includes('whatsapp') || text.includes('WhatsApp')) {
-        window.fbq('track', 'Contact', { button_text: 'WhatsApp Contact', button_id: id });
-      } else if (pathname.includes('/biodata/') && (text.includes('কপি') || text.includes('Copy'))) {
-        window.fbq('track', 'ViewContent', { button_text: 'Copy Biodata Link', content_category: 'biodata' });
+      // WhatsApp button - check href OR text
+      if (href.includes('wa.me') || text.includes('WhatsApp') || text.includes('মেসেজ পাঠান')) {
+        window.fbq('track', 'Contact', { 
+          event: 'Contact',
+          button_text: text.substring(0, 50), 
+          button_id: id,
+          page_path: pathname,
+        });
+        console.log('FB Pixel: Contact - WhatsApp', { text, href });
+      }
+      // Register button
+      else if (text.includes('রেজিস্টার') || text.includes('Register') || href.includes('/register')) {
+        window.fbq('track', 'Lead', { 
+          event: 'Lead',
+          button_text: text.substring(0, 50), 
+          button_id: id,
+          page_path: pathname,
+        });
+        console.log('FB Pixel: Lead - Register', { text, href });
+      }
+      // Login button
+      else if (text.includes('লগইন') || text.includes('Login') || href.includes('/login')) {
+        window.fbq('track', 'Lead', { 
+          event: 'Lead',
+          button_text: text.substring(0, 50), 
+          button_id: id,
+          page_path: pathname,
+        });
+        console.log('FB Pixel: Lead - Login', { text, href });
+      }
+      // Search button
+      else if (text.includes('খুঁজুন') || text.includes('Search') || text.includes('🔍')) {
+        window.fbq('track', 'Search', { 
+          event: 'Search',
+          button_text: text.substring(0, 50), 
+          button_id: id,
+          page_path: pathname,
+        });
+        console.log('FB Pixel: Search', { text });
+      }
+      // Shortlist button
+      else if (text.includes('শর্টলিস্ট') || text.includes('Shortlist')) {
+        window.fbq('track', 'ViewContent', { 
+          event: 'ViewContent',
+          button_text: 'Shortlist Biodata',
+          content_category: 'biodata_action',
+          page_path: pathname,
+        });
+        console.log('FB Pixel: ViewContent - Shortlist', { text });
+      }
+      // Copy button
+      else if (text.includes('কপি') || text.includes('Copy')) {
+        window.fbq('track', 'ViewContent', { 
+          event: 'ViewContent',
+          button_text: 'Copy Biodata Link',
+          content_category: 'biodata',
+          page_path: pathname,
+        });
+        console.log('FB Pixel: ViewContent - Copy', { text });
       }
     };
 
