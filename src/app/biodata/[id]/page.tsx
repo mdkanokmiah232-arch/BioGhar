@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { biodatas } from "@/data/biodatas";
 import CopyBiodataLink from "@/components/CopyBiodataLink";
-import BiodataTracker from "@/components/BiodataTracker";
+import BiodataViewTracker from "@/components/BiodataViewTracker";
 
 export function generateStaticParams() {
   return biodatas.map((b) => ({ id: b.id }));
@@ -44,10 +44,11 @@ export default async function BiodataDetailPage({ params }: { params: Promise<{ 
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Facebook Pixel Tracking for Biodata Views */}
-      <BiodataTracker
+      <BiodataViewTracker
         biodataCode={biodata.biodataCode}
         biodataName={biodata.name}
         biodataType={isGroom ? "GROOM" : "BRIDE"}
+        pageUrl={`https://bioghar.vercel.app/biodata/${id}`}
       />
       <div className="max-w-6xl mx-auto px-4 py-6">
         <div className="flex flex-col lg:flex-row gap-6">

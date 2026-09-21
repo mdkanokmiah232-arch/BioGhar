@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import ClientHeader from '@/components/ClientHeader';
+import PageTracker from '@/components/PageTracker';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen flex flex-col">
         <ClientHeader />
+        <PageTracker />
         <main className="flex-1">{children}</main>
         <footer className="bg-emerald-900 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
