@@ -50,9 +50,23 @@ export default function ClientHeader() {
             ) : (
               <>
                 <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-emerald-700 transition">লগইন</Link>
-                <Link href="/register" className="rounded-full bg-emerald-700 px-5 py-2 text-sm font-semibold text-white hover:bg-emerald-800 transition">
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc6xd-YaDpRUuZAIGS7OGNg71_naojyIhuVYwlgUMQ6-Vpxdw/viewform?usp=publish-editor" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && window.fbq) {
+                      window.fbq('track', 'Lead', { 
+                        event: 'Lead',
+                        content_name: 'Signup Form - Google Form',
+                        button_text: 'রেজিস্টার',
+                      });
+                    }
+                  }}
+                  className="rounded-full bg-emerald-700 px-5 py-2 text-sm font-semibold text-white hover:bg-emerald-800 transition"
+                >
                   রেজিস্টার
-                </Link>
+                </a>
               </>
             )}
           </div>

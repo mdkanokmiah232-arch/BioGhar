@@ -168,9 +168,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">আজই বিনামূল্যে বায়োডাটা তৈরি করুন!</h2>
           <p className="text-emerald-100 mb-8 max-w-2xl mx-auto">আমাদের প্ল্যাটফর্মে বিনামূল্যে বায়োডাটা তৈরি করুন এবং আপনার জীবনসঙ্গীকে খুঁজে নিন।</p>
-          <Link href="/register" className="inline-block bg-white text-emerald-700 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-lg text-lg">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6xd-YaDpRUuZAIGS7OGNg71_naojyIhuVYwlgUMQ6-Vpxdw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-emerald-700 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-lg text-lg">
             📝 বিনামূল্যে বায়োডাটা তৈরি করুন
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -225,7 +225,7 @@ export default function HomePage() {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">এখনই শুরু করুন!</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">আপনার জীবনসঙ্গীকে খুঁজে নিতে আজই রেজিস্ট্রেশন করুন</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/register" className="btn-primary text-lg">রেজিস্ট্রেশন করুন</Link>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6xd-YaDpRUuZAIGS7OGNg71_naojyIhuVYwlgUMQ6-Vpxdw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg">রেজিস্ট্রেশন করুন</a>
             <Link href="/biodata" className="btn-secondary text-lg">বায়োডাটা খুঁজুন</Link>
           </div>
         </div>

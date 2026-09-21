@@ -97,9 +97,9 @@ export default function AboutPage() {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-2xl font-bold text-emerald-900 mb-4">আজই শুরু করুন</h2>
           <p className="text-gray-600 mb-6">আপনার বায়োডাটা তৈরি করুন এবং আপনার অর্ধেক দীন খুঁজে নিন</p>
-          <Link href="/register" className="inline-flex items-center rounded-full bg-emerald-700 px-8 py-4 text-lg font-semibold text-white hover:bg-emerald-800 transition">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6xd-YaDpRUuZAIGS7OGNg71_naojyIhuVYwlgUMQ6-Vpxdw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-emerald-700 px-8 py-4 text-lg font-semibold text-white hover:bg-emerald-800 transition">
             বিনামূল্যে বায়োডাটা তৈরি করুন ✨
-          </Link>
+          </a>
         </div>
       </section>
 
