@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { fbPixel } from "@/lib/fbPixel";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -13,6 +14,10 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    // Facebook Pixel tracking for Contact
+    fbPixel.contact('Contact Form - ' + subject);
+
     setName("");
     setEmail("");
     setSubject("");

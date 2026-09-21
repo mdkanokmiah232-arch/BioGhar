@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { fbPixel } from "@/lib/fbPixel";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -67,6 +68,11 @@ export default function RegisterPage() {
         users.push(newUser);
         localStorage.setItem("bioghar_users", JSON.stringify(users));
         alert("রেজিস্ট্রেশন সফল হয়েছে! এখন লগইন করুন।");
+
+        // Facebook Pixel tracking for Lead and CompleteRegistration
+        fbPixel.lead('Biodata Registration');
+        fbPixel.completeRegistration('Website Registration');
+
         router.push("/login");
       } else {
         setError("ভুল কোড! আবার চেষ্টা করুন।");

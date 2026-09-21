@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { biodatas, districts } from "@/data/biodatas";
+import { fbPixel } from "@/lib/fbPixel";
 
 function CollapsibleSection({ title, defaultOpen = false, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -59,6 +60,13 @@ export default function BiodataSearchContent() {
   const [profession, setProfession] = useState("all");
   const [biodataNo, setBiodataNo] = useState("");
   const [activeTab, setActiveTab] = useState<"filter" | "biodataNo">("filter");
+
+  // Track search events
+  useEffect(() => {
+    if (filtered.length > 0) {
+      fbPixel.search('Biodata Search - ' + filtered.length + ' results');
+    }
+  }, [lookingFor, maritalStatus, ageMin, ageMax, district, education, profession]);
 
   const filtered = useMemo(() => {
     return biodatas.filter((b) => {
