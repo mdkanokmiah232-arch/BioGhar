@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import ClientHeader from '@/components/ClientHeader';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'BioGhar - ইসলামিক বায়োডাটা প্ল্যাটফর্ম',
@@ -22,9 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
         {/* Meta Pixel Code */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+        <Script id="fb-pixel" strategy="afterInteractive">
+          {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -35,9 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '1401111951465978');
             fbq('track', 'PageView');
-            `
-          }}
-        />
+          `}
+        </Script>
         <noscript>
           <img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1401111951465978&ev=PageView&noscript=1"
